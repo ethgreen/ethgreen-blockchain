@@ -3,7 +3,7 @@ Welcome to ETHGreen Blockchain
 ETHGreen blockchain is a fork from STAI and Chia blockchain including features implemented by Covid blockchain.
 
 About the project :
-10% of all miner rewards will go to a donation wallet, which earnings will be donated to charitable causes worldwide. In addition, as compensate for mining and its consequences, the CO2 emissions, we´ll buy land anywhere in the world and leave it back to nature.
+1/10 of all miner rewards will go to a donation wallet, which earnings will be donated to charitable causes worldwide. In addition, as compensate for mining and its consequences, the CO2 emissions, we´ll buy land anywhere in the world and leave it back to nature.
 Block reward: 20 XETH
 
 Full node :
@@ -18,7 +18,7 @@ Website : https://eth-green.com
 
 
 Install instruction for UBUNTU/DEBIAN:
-UBUNTU 21.04 not supported. Working on 20.04 fine. 
+UBUNTU 21.04 not tested. Working on 20.04 fine. 
 If you want to install on Ubuntu 18.04 LTS you should use Python 3.7 instead: 
 sudo apt-get install python3.7-venv python3.7-distutils python3.7-dev git lsb-release -y
 
