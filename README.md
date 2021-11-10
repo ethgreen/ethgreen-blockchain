@@ -5,7 +5,9 @@ Block reward: 20 XETH
 
 Full node :
 dns-introducer.eth-green.com
-Port : 2296
+or
+84.150.171.34
+Port : 6262
 
 Join our Community : https://discord.gg/uWnhFbMJTn
 Twitter: https://twitter.com/ethgreenproject
