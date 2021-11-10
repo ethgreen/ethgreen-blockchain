@@ -1,5 +1,8 @@
 Welcome to ETHGreen Blockchain
 
+ETHGreen blockchain is a fork from STAI and Chia blockchain including features implemented by Covid blockchain.
+
+About the project :
 10% of all miner rewards will go to a donation wallet, which earnings will be donated to charitable causes worldwide. In addition, as compensate for mining and its consequences, the CO2 emissions, we´ll buy land anywhere in the world and leave it back to nature.
 Block reward: 20 XETH
 
