@@ -31,12 +31,21 @@ sudo apt-get upgrade -y
 sudo apt install git -y
 
 # Checkout the source and install
-git clone https://github.com/ethgreen/ethgreen-blockchain.git -b latest --recurse-submodules
+git clone https://github.com/ethgreen/ethgreen-blockchain.git
 cd ethgreen-blockchain
 
 sh install.sh
 
 . ./activate
+
+# Install and run timelord
+cd ethgreen-blockchain
+. ./activate
+sh install-timelord.sh
+ethgreen init
+ethgreen start timelord
+ethgreen show -a dns-introducer.eth-green.com:6262
+or 84.150.173.139:6262
 
 # The GUI requires you have Ubuntu Desktop or a similar windowing system installed.
 # You can not install and run the GUI as root
