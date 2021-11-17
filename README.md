@@ -45,7 +45,6 @@ sh install-timelord.sh
 ethgreen init
 ethgreen start timelord
 ethgreen show -a dns-introducer.eth-green.com:6262
-or 84.150.173.139:6262
 
 # The GUI requires you have Ubuntu Desktop or a similar windowing system installed.
 # You can not install and run the GUI as root
@@ -55,29 +54,6 @@ sh install-gui.sh
 cd ethgreen-blockchain-gui
 npm run electron &
 
-
-
-To Update/Upgrade from previous version
-cd ethgreen-blockchain
-. ./activate
-ethgreen stop -d all
-deactivate
-git fetch
-git checkout latest
-git reset --hard FETCH_HEAD --recurse-submodules
-
-# If you get RELEASE.dev0 then delete the package-lock.json in ethgreen-blockchain-gui and install.sh again
-
-git status
-
-# git status should say "nothing to commit, working tree clean", 
-# if you have uncommitted changes, RELEASE.dev0 will be reported.
-
-sh install.sh
-
-. ./activate
-
-ethgreen init
 
 # The GUI requires to have Ubuntu Desktop or a similar windowing system installed.
 # You can not install and run the GUI as root user.
@@ -89,7 +65,7 @@ npm run electron &
 INSTALL FOR MAC
 
 # Checkout the source and install
-git clone https://github.com/ethgreen/ethgreen-blockchain.git -b latest --recurse-submodules
+git clone https://github.com/ethgreen/ethgreen-blockchain.git
 cd ethgreen-blockchain
 
 sh install.sh
