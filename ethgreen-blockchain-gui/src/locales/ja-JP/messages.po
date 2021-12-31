@@ -8,7 +8,7 @@ msgstr ""
 "Language: ja_JP\n"
 "Project-Id-Version: ethgreen-blockchain\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-07-26 15:12\n"
+"PO-Revision-Date: 2021-09-17 17:40\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,15 +20,19 @@ msgstr ""
 
 #: src/components/plot/add/PlotAddNFT.tsx:62
 msgid "(Optional)"
-msgstr ""
+msgstr "(オプション)"
 
 #: src/components/farm/FarmLatestBlockChallenges.tsx:64
-msgid "*Want to explore ethgreen’s blocks further? Check out <0>ethgreen Explorer</0> built by an open source developer."
-msgstr "*チアのブロックをさらに調べたいですか？オープンソース開発者に提供していただいた <0>ethgreen Explorer</0> を是非ご覧ください。"
+msgid "*Want to explore Ethgreen’s blocks further? Check out <0>Ethgreen Explorer</0> built by an open source developer."
+msgstr "*Ethgreenのブロックをさらに調べたいですか？オープンソース開発者に提供していただいた <0>Ethgreen Explorer</0> を是非ご覧ください。"
 
 #: src/components/plot/add/PlotAddNFT.tsx:123
 msgid "+ Add New Plot NFT"
-msgstr ""
+msgstr "+ 新規プロットNFT を追加"
+
+#: src/components/wallet/Wallets.tsx:132
+msgid "+ Add Wallet"
+msgstr "+ ウォレットを追加"
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:94
 #~ msgid "0 automatically chooses bucket count"
@@ -42,10 +46,10 @@ msgstr "バケツ数は 128 がおすすめ"
 msgid "A harvester is a service running on a machine where plot(s) are actually stored. A farmer and harvester talk to a full node to see the state of the chain. View your network of connected harvesters below Learn more"
 msgstr "収穫機は耕地が実際に保存されているデバイス上に走らせるサービスです。農家と収穫機はフルノードと通信することでブロックチェーンの状態を認識します。以下が接続されている収穫機ネットワークです。詳しく"
 
-#: src/electron/main.tsx:422
-#: src/electron/main.tsx:509
-msgid "About ETHGreen Blockchain"
-msgstr "チアブロックチェーンについて"
+#: src/electron/main.tsx:431
+#: src/electron/main.tsx:518
+msgid "About Ethgreen Blockchain"
+msgstr "Ethgreenブロックチェーンについて"
 
 #: src/components/trading/ViewOffer.jsx:74
 msgid "Accept"
@@ -72,6 +76,11 @@ msgstr "操作"
 msgid "Add"
 msgstr "追加"
 
+#: src/components/wallet/did/WalletDID.tsx:877
+#: src/components/wallet/did/WalletDIDCreate.tsx:208
+msgid "Add Backup ID"
+msgstr ""
+
 #: src/components/plot/PlotHeader.tsx:91
 msgid "Add Plot Directory"
 msgstr "耕地ディレクトリを追加"
@@ -95,38 +104,42 @@ msgstr "耕地を追加"
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:51
 msgid "Add a Plot NFT"
-msgstr ""
+msgstr "プロットNFTを追加"
 
-#: src/components/plot/PlotAddDirectoryDialog.tsx:68
+#: src/components/plot/PlotAddDirectoryDialog.tsx:72
 msgid "Add a plot"
 msgstr "耕地を追加"
 
-#: src/components/plot/PlotAddDirectoryDialog.tsx:107
+#: src/components/plot/PlotAddDirectoryDialog.tsx:111
 msgid "Add plot directory"
 msgstr "耕地ディレクトリを追加"
 
 #: src/components/plotNFT/select/PlotNFTSelectFaucet.tsx:42
 msgid "Add {currencyCode} from the Faucet"
-msgstr ""
+msgstr "Faucetから {currencyCode} を追加"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:561
 #: src/components/wallet/coloured/WalletColoured.tsx:657
-#: src/components/wallet/standard/WalletStandard.tsx:596
+#: src/components/wallet/standard/WalletStandard.tsx:589
 msgid "Address"
 msgstr "アドレス"
 
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:701
-#: src/components/wallet/standard/WalletStandard.tsx:503
+#: src/components/wallet/standard/WalletStandard.tsx:496
 msgid "Address / Puzzle hash"
 msgstr "アドレス・パズルハッシュ値"
 
-#: src/components/core/components/Amount/Amount.tsx:96
+#: src/components/app/AppKeyringMigrator.tsx:195
+msgid "After your keys are successfully migrated to the new keyring, you may choose to have your keys removed from the old keyring."
+msgstr ""
+
+#: src/components/core/components/Amount/Amount.tsx:99
 #: src/components/trading/CreateOffer.jsx:196
 #: src/components/trading/TradesTable.tsx:20
 #: src/components/wallet/WalletHistory.tsx:62
 #: src/components/wallet/create/createNewColouredCoin.jsx:119
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:720
-#: src/components/wallet/standard/WalletStandard.tsx:513
+#: src/components/wallet/standard/WalletStandard.tsx:506
 msgid "Amount"
 msgstr "金額"
 
@@ -138,21 +151,25 @@ msgstr "金額 ({cc_unit})"
 msgid "Amount For Initial Coin"
 msgstr "最初にコインに充てる金額"
 
+#: src/components/wallet/did/WalletDIDCreate.tsx:62
+msgid "Amount must be an even amount."
+msgstr ""
+
 #: src/components/plot/PlotAction.tsx:30
 #: src/components/plot/queue/PlotQueueActions.tsx:46
 msgid "Are you sure you want to delete the plot? The plot cannot be recovered."
 msgstr "本当にこの耕地を削除しますか？耕地は削除すると復元できません。"
 
 #: src/components/plotNFT/PlotNFTCard.tsx:125
-#: src/components/wallet/standard/WalletStandard.tsx:632
+#: src/components/wallet/standard/WalletStandard.tsx:626
 msgid "Are you sure you want to delete unconfirmed transactions?"
-msgstr ""
+msgstr "未確認の取引を削除してもよろしいですか?"
 
 #: src/components/fullNode/FullNodeCloseConnection.tsx:25
 msgid "Are you sure you want to disconnect?"
 msgstr "本当に接続を解除しますか？"
 
-#: src/electron/main.tsx:197
+#: src/electron/main.tsx:196
 msgid "Are you sure you want to quit? GUI Plotting and farming will stop."
 msgstr "本当に終了しますか？ GUI 上の耕地作り及び耕作も停止します。"
 
@@ -166,24 +183,25 @@ msgstr "本当に k={plotSize} を使用しますか？"
 
 #: src/components/plotNFT/PlotNFTName.tsx:39
 msgid "Autogenerated name from pool contract address"
-msgstr ""
+msgstr "プールコントラクトアドレスから自動生成された名前"
 
 #: src/components/core/components/FormBackButton/FormBackButton.tsx:46
-#: src/components/selectKey/SelectKey.tsx:68
-#: src/components/selectKey/SelectKey.tsx:110
+#: src/components/selectKey/SelectKey.tsx:77
+#: src/components/selectKey/SelectKey.tsx:116
 msgid "Back"
 msgstr "戻る"
 
-#: src/components/backup/BackupCreate.tsx:66
+#: src/components/backup/BackupCreate.tsx:45
 msgid "Backup file is used to restore smart wallets."
 msgstr "バックアップファイルはスマートウォレットの復元に使用します。"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:377
+#: src/components/wallet/did/WalletDID.tsx:647
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:541
 msgid "Balance"
 msgstr "残高"
 
-#: src/components/block/Block.jsx:317
+#: src/components/block/Block.jsx:318
 msgid "Base Farmer Reward Amount"
 msgstr "農家への基本報酬額"
 
@@ -200,34 +218,34 @@ msgstr "過去24時間を基に推定"
 #~ msgid "Best estimate over last 5 hours"
 #~ msgstr ""
 
-#: src/components/block/Block.jsx:129
-#: src/components/block/Block.jsx:153
-#: src/components/block/Block.jsx:157
-#: src/components/block/Block.jsx:332
+#: src/components/block/Block.jsx:130
+#: src/components/block/Block.jsx:154
+#: src/components/block/Block.jsx:158
+#: src/components/block/Block.jsx:333
 msgid "Block"
 msgstr "ブロック"
 
-#: src/components/block/Block.jsx:137
+#: src/components/block/Block.jsx:138
 msgid "Block Test"
 msgstr "ブロックテスト"
 
-#: src/components/block/Block.jsx:235
+#: src/components/block/Block.jsx:236
 msgid "Block VDF Iterations"
 msgstr "ブロック VDF 評価回数"
 
-#: src/components/block/Block.jsx:336
-msgid "Block at height {0} in the ETHGreen Blockchain"
-msgstr "チアブロックチェーン内の高さ {0} のブロック"
+#: src/components/block/Block.jsx:337
+msgid "Block at height {0} in the Ethgreen blockchain"
+msgstr "Ethgreenブロックチェーン内の高さ {0} のブロック"
 
 #: src/components/fullNode/FullNode.jsx:331
 #~ msgid "Block hash"
 #~ msgstr ""
 
-#: src/components/block/Block.jsx:141
+#: src/components/block/Block.jsx:142
 msgid "Block with hash {headerHash}"
 msgstr "ハッシュ値 {headerHash} のブロック"
 
-#: src/components/block/Block.jsx:162
+#: src/components/block/Block.jsx:163
 msgid "Block with hash {headerHash} does not exist."
 msgstr "ハッシュ値 {headerHash} のブロックは存在しません。"
 
@@ -263,16 +281,22 @@ msgstr "購入"
 #~ msgid "CCListItems.title"
 #~ msgstr ""
 
-#: src/components/selectKey/SelectKey.tsx:170
+#: src/components/selectKey/SelectKey.tsx:212
 msgid "Can be backed up to mnemonic seed"
 msgstr "合言葉でバックアップ作成可能"
 
+#: src/components/app/AppPassPrompt.tsx:256
+#: src/components/backup/BackupCreate.tsx:50
 #: src/components/core/components/ConfirmDialog/ConfirmDialog.tsx:86
-#: src/components/farm/FarmManageFarmingRewards.tsx:196
+#: src/components/farm/FarmManageFarmingRewards.tsx:200
 #: src/components/fullNode/FullNodeAddConnection.tsx:89
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:123
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:128
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:87
 #: src/components/plotNFT/select/PlotNFTSelectFaucet.tsx:30
+#: src/components/selectKey/SelectKey.tsx:138
+#: src/components/settings/ChangePassphrasePrompt.tsx:240
+#: src/components/settings/RemovePassphrasePrompt.tsx:152
+#: src/components/settings/SetPassphrasePrompt.tsx:211
 #: src/components/trading/CreateOffer.jsx:139
 #: src/components/trading/TradingOverview.jsx:400
 #: src/components/trading/ViewOffer.jsx:71
@@ -297,29 +321,22 @@ msgstr "チャレンジのハッシュ値"
 
 #: src/components/plotNFT/PlotNFTChangePool.tsx:111
 msgid "Change"
+msgstr "変更する"
+
+#: src/components/settings/ChangePassphrasePrompt.tsx:248
+#: src/components/settings/Settings.tsx:158
+msgid "Change Passphrase"
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTCard.tsx:408
 #: src/components/plotNFT/PlotNFTChangePool.tsx:110
 #: src/components/pool/PoolOverview.tsx:115
 msgid "Change Pool"
-msgstr ""
+msgstr "プールの変更"
 
-#: src/electron/main.tsx:401
-msgid "Chat on KeyBase"
-msgstr "Keybase でチャット"
-
-#: src/electron/main.tsx:419
-msgid "ethgreen"
-msgstr "チア"
-
-#: src/electron/main.tsx:358
-msgid "ETHGreen Blockchain Wiki"
-msgstr "チアブロックチェーンの Wiki"
-
-#: src/components/wallet/standard/WalletStandard.tsx:647
-msgid "ethgreen Wallet"
-msgstr "チアウォレット"
+#: src/electron/main.tsx:410
+msgid "Chat on Discord"
+msgstr "Discord でチャット"
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:36
 msgid "Choose Number of Plots"
@@ -334,14 +351,18 @@ msgstr "耕地容量を選択"
 msgid "Claim Rewards"
 msgstr ""
 
-#: src/components/plot/PlotAddDirectoryDialog.tsx:114
-#: src/components/plot/queue/PlotQueueLogDialog.tsx:89
+#: src/components/plot/PlotAddDirectoryDialog.tsx:118
+#: src/components/plot/queue/PlotQueueLogDialog.tsx:88
 msgid "Close"
 msgstr "閉じる"
 
-#: src/components/app/AppRouter.tsx:27
+#: src/components/app/AppRouter.tsx:42
 msgid "Closing down node and server"
 msgstr "ノードとサーバーを停止中"
+
+#: src/components/wallet/did/WalletDID.tsx:987
+msgid "Coin Name"
+msgstr ""
 
 #: src/components/trading/TradingOverview.jsx:366
 msgid "Coins:"
@@ -364,16 +385,16 @@ msgstr "色文字列"
 msgid "Colour:"
 msgstr "色:"
 
-#: src/components/wallet/create/WalletCreate.jsx:118
+#: src/components/wallet/create/WalletCreateList.tsx:34
 msgid "Coloured Coin"
 msgstr "カラードコイン"
 
-#: src/components/wallet/create/WalletCreate.jsx:160
+#: src/components/wallet/create/WalletCreate.jsx:122
 msgid "Coloured Coin Options"
 msgstr "カラードコインのオプション"
 
 #: src/components/plotNFT/PlotNFTAbsorbRewards.tsx:168
-#: src/electron/main.tsx:195
+#: src/electron/main.tsx:194
 #: src/hooks/useAbsorbRewards.tsx:46
 msgid "Confirm"
 msgstr "了承"
@@ -382,8 +403,18 @@ msgstr "了承"
 msgid "Confirm Disconnect"
 msgstr "接続解除の確認"
 
+#: src/components/settings/ChangePassphrasePrompt.tsx:198
+msgid "Confirm New Passphrase"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:146
+#: src/components/app/AppKeyringMigrator.tsx:147
+#: src/components/settings/SetPassphrasePrompt.tsx:166
+msgid "Confirm Passphrase"
+msgstr ""
+
 #: src/components/plotNFT/PlotNFTCard.tsx:121
-#: src/components/wallet/standard/WalletStandard.tsx:628
+#: src/components/wallet/standard/WalletStandard.tsx:622
 msgid "Confirmation"
 msgstr ""
 
@@ -413,7 +444,7 @@ msgstr ""
 msgid "Connected"
 msgstr "接続済み"
 
-#: src/components/app/AppRouter.tsx:34
+#: src/components/app/AppRouter.tsx:61
 msgid "Connecting to wallet"
 msgstr "ウォレットに接続中"
 
@@ -434,7 +465,7 @@ msgstr "接続の種類"
 msgid "Connections"
 msgstr "接続数"
 
-#: src/electron/main.tsx:382
+#: src/electron/main.tsx:391
 msgid "Contribute on GitHub"
 msgstr "GitHub で開発協力"
 
@@ -453,19 +484,32 @@ msgstr "コピー"
 msgid "Copy to Clipboard"
 msgstr "クリップボードにコピー"
 
-#: src/components/backup/BackupCreate.tsx:78
-#: src/components/plot/add/PlotAdd.tsx:177
+#: src/components/backup/BackupCreate.tsx:58
+#: src/components/plot/add/PlotAdd.tsx:176
 #: src/components/plotNFT/select/PlotNFTSelectPool.tsx:175
 #: src/components/wallet/create/createExistingColouredCoin.jsx:133
 #: src/components/wallet/create/createNewColouredCoin.jsx:142
 #: src/components/wallet/create/createRLAdmin.jsx:307
 #: src/components/wallet/create/createRLUser.jsx:99
+#: src/components/wallet/did/WalletDIDCreate.tsx:221
 msgid "Create"
 msgstr "作成"
 
-#: src/components/wallet/create/WalletCreate.jsx:276
-msgid "Create DID wallet"
-msgstr "DID ウォレットを作成"
+#: src/components/wallet/did/WalletDID.tsx:970
+msgid "Create An Attestation Packet"
+msgstr ""
+
+#: src/components/wallet/create/WalletCreate.jsx:290
+#~ msgid "Create DID wallet"
+#~ msgstr "Create DID wallet"
+
+#: src/components/wallet/did/WalletDIDCreate.tsx:110
+msgid "Create Distributed Identity Wallet"
+msgstr ""
+
+#: src/components/wallet/did/WalletDIDSelect.tsx:32
+msgid "Create New Wallet"
+msgstr ""
 
 #: src/components/trading/TradeManager.tsx:45
 msgid "Create Offer"
@@ -493,11 +537,11 @@ msgstr "交換の注文を作成"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:543
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:684
-#: src/components/wallet/standard/WalletStandard.tsx:483
+#: src/components/wallet/standard/WalletStandard.tsx:476
 msgid "Create Transaction"
 msgstr "取引を作成"
 
-#: src/components/backup/BackupCreate.tsx:63
+#: src/components/backup/BackupCreate.tsx:41
 msgid "Create a Backup"
 msgstr "バックアップを作成"
 
@@ -505,19 +549,19 @@ msgstr "バックアップを作成"
 msgid "Create a Plot NFT"
 msgstr ""
 
-#: src/components/selectKey/SelectKey.tsx:211
+#: src/components/selectKey/SelectKey.tsx:254
 msgid "Create a new private key"
 msgstr "秘密鍵を新規作成"
 
-#: src/components/wallet/create/WalletCreate.jsx:224
+#: src/components/wallet/create/WalletCreate.jsx:186
 msgid "Create admin wallet"
 msgstr "管理者ウォレットを作成"
 
-#: src/components/wallet/create/WalletCreate.jsx:170
+#: src/components/wallet/create/WalletCreate.jsx:132
 msgid "Create new coloured coin"
 msgstr "新規カラードコインを作成"
 
-#: src/components/wallet/create/WalletCreate.jsx:230
+#: src/components/wallet/create/WalletCreate.jsx:192
 msgid "Create user wallet"
 msgstr "ユーザーウォレットを作成"
 
@@ -525,7 +569,7 @@ msgstr "ユーザーウォレットを作成"
 msgid "Create wallet for colour"
 msgstr "色付きウォレットを作成"
 
-#: src/components/wallet/create/WalletCreate.jsx:177
+#: src/components/wallet/create/WalletCreate.jsx:139
 msgid "Create wallet for existing colour"
 msgstr "既に存在する色のウォレットを作成"
 
@@ -558,6 +602,10 @@ msgstr ""
 msgid "Current Difficulty"
 msgstr ""
 
+#: src/components/settings/ChangePassphrasePrompt.tsx:178
+msgid "Current Passphrase"
+msgstr ""
+
 #: src/components/plotNFT/PlotExternalNFTCard.tsx:156
 #: src/components/plotNFT/PlotNFTCard.tsx:198
 msgid "Current Points Balance"
@@ -567,7 +615,7 @@ msgstr ""
 msgid "Current trade status"
 msgstr "現在の取引状態"
 
-#: src/components/selectKey/SelectKey.tsx:185
+#: src/components/selectKey/SelectKey.tsx:227
 msgid "DANGER: permanently delete private key"
 msgstr "！危険！: 秘密鍵を永久的に削除"
 
@@ -594,11 +642,19 @@ msgstr "遅延時間"
 #: src/components/plot/queue/PlotQueueActions.tsx:43
 #: src/components/plot/queue/PlotQueueActions.tsx:97
 #: src/components/plotNFT/PlotNFTCard.tsx:122
-#: src/components/selectKey/SelectKey.tsx:67
-#: src/components/selectKey/SelectKey.tsx:109
-#: src/components/wallet/standard/WalletStandard.tsx:629
+#: src/components/selectKey/SelectKey.tsx:76
+#: src/components/selectKey/SelectKey.tsx:115
+#: src/components/wallet/did/WalletDID.tsx:449
+#: src/components/wallet/did/WalletDID.tsx:865
+#: src/components/wallet/did/WalletDIDCreate.tsx:197
+#: src/components/wallet/did/WalletDIDRecovery.tsx:101
+#: src/components/wallet/standard/WalletStandard.tsx:623
 msgid "Delete"
 msgstr "削除"
+
+#: src/components/app/AppPassPrompt.tsx:198
+msgid "Delete Key"
+msgstr ""
 
 #: src/components/plot/PlotAction.tsx:26
 #: src/components/plot/queue/PlotQueueActions.tsx:42
@@ -606,12 +662,12 @@ msgid "Delete Plot"
 msgstr "耕地を削除"
 
 #: src/components/plotNFT/PlotNFTCard.tsx:315
-#: src/components/wallet/standard/WalletStandard.tsx:663
+#: src/components/wallet/standard/WalletStandard.tsx:667
 msgid "Delete Unconfirmed Transactions"
 msgstr ""
 
-#: src/components/selectKey/SelectKey.tsx:108
-#: src/components/selectKey/SelectKey.tsx:229
+#: src/components/selectKey/SelectKey.tsx:114
+#: src/components/selectKey/SelectKey.tsx:273
 msgid "Delete all keys"
 msgstr "全ての鍵を削除"
 
@@ -619,30 +675,42 @@ msgstr "全ての鍵を削除"
 #~ msgid "Delete key"
 #~ msgstr "Delete key"
 
-#: src/components/selectKey/SelectKey.tsx:66
+#: src/components/selectKey/SelectKey.tsx:75
 msgid "Delete key {fingerprint}"
 msgstr "鍵 {fingerprint} を削除"
 
-#: src/components/selectKey/SelectKey.tsx:113
-msgid "Deleting all keys will permanently remove the keys from your computer, make sure you have backups. Are you sure you want to continue?"
-msgstr "全ての鍵を削除するとどれも復元することができなくなりますので、必ずバックアップを取ってください。本当に続行しますか？"
+#: src/components/selectKey/SelectKey.tsx:126
+#~ msgid "Deleting all keys will permanently remove the keys from your computer, make sure you have backups. Are you sure you want to continue?"
+#~ msgstr "全ての鍵を削除するとどれも復元することができなくなりますので、必ずバックアップを取ってください。本当に続行しますか？"
 
-#: src/components/selectKey/SelectKey.tsx:92
-msgid "Deleting the key will permanently remove the key from your computer, make sure you have backups. Are you sure you want to continue?"
-msgstr "鍵を削除すると復元することができませんので、必ずバックアップを取ってください。本当に続行しますか？"
+#: src/components/app/AppPassPrompt.tsx:194
+msgid "Deleting key"
+msgstr ""
 
-#: src/electron/main.tsx:304
+#: src/components/selectKey/SelectKey.tsx:101
+#~ msgid "Deleting the key will permanently remove the key from your computer, make sure you have backups. Are you sure you want to continue?"
+#~ msgstr "鍵を削除すると復元することができませんので、必ずバックアップを取ってください。本当に続行しますか？"
+
+#: src/electron/main.tsx:313
 msgid "Developer"
 msgstr "開発者"
 
-#: src/electron/main.tsx:307
+#: src/electron/main.tsx:316
 msgid "Developer Tools"
 msgstr "開発者向けツール"
 
-#: src/components/block/Block.jsx:221
+#: src/components/block/Block.jsx:222
 #: src/components/fullNode/card/FullNodeCardDifficulty.tsx:20
 msgid "Difficulty"
 msgstr "難易度"
+
+#: src/components/app/AppPassPrompt.tsx:78
+msgid "Disable"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:77
+msgid "Disable Passphrase Protection"
+msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:114
 #~ msgid "Disable bifield plotting when your temporary directory is on fast storage like SSD or you need lower per process RAM requirements. Plotting with bitfield enabled has about 20% less overall writes."
@@ -660,13 +728,14 @@ msgstr ""
 msgid "Disconnect"
 msgstr "解除"
 
-#: src/components/wallet/create/WalletCreate.jsx:144
-#~ msgid "Distributed Identity"
-#~ msgstr ""
+#: src/components/wallet/create/WalletCreateList.tsx:28
+#: src/components/wallet/did/WalletDIDSelect.tsx:25
+msgid "Distributed Identity"
+msgstr ""
 
-#: src/components/wallet/create/WalletCreate.jsx:266
-msgid "Distributed Identity Options"
-msgstr "分散型アイデンティティのオプション"
+#: src/components/wallet/create/WalletCreate.jsx:280
+#~ msgid "Distributed Identity Options"
+#~ msgstr "Distributed Identity Options"
 
 #: src/components/farm/overview/FarmOverviewHero.tsx:52
 #: src/components/plot/overview/PlotOverviewHero.tsx:69
@@ -677,8 +746,11 @@ msgstr "既にこのデバイス上に耕地をお持ちですか？<0>耕地デ
 msgid "Does your machine support parallel plotting?"
 msgstr "お使いのデバイスは並列で耕せますか？"
 
+#: src/components/wallet/did/WalletDID.tsx:428
+msgid "Drag and drop attestation packet(s)"
+msgstr ""
+
 #: src/components/trading/ViewOffer.jsx:39
-#: src/components/wallet/create/recoverDIDWallet.js:294
 msgid "Drag and drop offer file"
 msgstr "注文ファイルをここにドラッグ&ドロップ"
 
@@ -686,19 +758,39 @@ msgstr "注文ファイルをここにドラッグ&ドロップ"
 msgid "Drag and drop your backup file"
 msgstr "バックアップファイルをここにドラッグ&ドロップ"
 
-#: src/electron/main.tsx:263
+#: src/components/wallet/did/WalletDIDRecovery.tsx:109
+msgid "Drag and drop your recovery backup file"
+msgstr ""
+
+#: src/electron/main.tsx:272
 msgid "Edit"
 msgstr "編集"
 
 #: src/components/plotNFT/PlotExternalNFTCard.tsx:259
 #: src/components/plotNFT/PlotNFTCard.tsx:301
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:76
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:81
 msgid "Edit Payout Instructions"
 msgstr "支払い指示を編集"
 
-#: src/components/wallet/WalletImport.tsx:147
-msgid "Enter the 24 word mnemonic that you have saved in order to restore your ethgreen wallet."
-msgstr "チアウォレットを復元するには、24語の合言葉を入力してください。"
+#: src/components/wallet/EnterPassphrasePrompt.tsx:111
+#~ msgid "Enter Passphrase"
+#~ msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:125
+msgid "Enter a strong passphrase and click Migrate Keys to secure your keys"
+msgstr ""
+
+#: src/components/settings/SetPassphrasePrompt.tsx:145
+msgid "Enter a strong passphrase to secure your keys:"
+msgstr ""
+
+#: src/components/wallet/WalletImport.tsx:146
+msgid "Enter the 24 word mnemonic that you have saved in order to restore your Ethgreen wallet."
+msgstr "Ethgreenウォレットを復元するには、24語の合言葉を入力してください。"
+
+#: src/components/settings/RemovePassphrasePrompt.tsx:118
+msgid "Enter your passphrase:"
+msgstr ""
 
 #: src/components/farm/FarmerStatus.tsx:21
 #: src/components/farm/FarmerStatus.tsx:22
@@ -710,9 +802,9 @@ msgstr "チアウォレットを復元するには、24語の合言葉を入力�
 msgid "Error"
 msgstr "エラー"
 
-#: src/components/wallet/standard/WalletStandard.tsx:456
+#: src/components/wallet/standard/WalletStandard.tsx:450
 msgid "Error: Cannot send ethgreen to coloured address. Please enter a ethgreen address."
-msgstr "エラー: チアは色付きのアドレスには送れません。チアのアドレスを入力してください。"
+msgstr "エラー: Ethgreenは色付きのアドレスには送れません。Ethgreenのアドレスを入力してください。"
 
 #: src/components/fullNode/card/FullNodeEstimatedNetworkSpace.tsx:20
 msgid "Estimated Network Space"
@@ -731,6 +823,18 @@ msgstr "報酬が当たるまでの推定時間"
 msgid "Estimated sum of all the plotted disk space of all farmers in the network"
 msgstr "ネットワーク上の全農家が耕した全容量の推定値"
 
+#: src/electron/main.tsx:428
+msgid "Ethgreen"
+msgstr "Ethgreen"
+
+#: src/electron/main.tsx:367
+msgid "Ethgreen Blockchain Wiki"
+msgstr "Ethgreenブロックチェーンの Wiki"
+
+#: src/components/wallet/standard/WalletStandard.tsx:642
+msgid "Ethgreen Wallet"
+msgstr "Ethgreenウォレット"
+
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:193
 msgid "Exclude final directory"
 msgstr "最終ディレクトリを除外"
@@ -744,9 +848,21 @@ msgstr "最終ディレクトリを除外"
 msgid "Failed to open (invalid plots)"
 msgstr "開けませんでした (耕地に問題あり)"
 
-#: src/components/dashboard/DashboardSideBar.tsx:55
+#: src/components/settings/ChangePassphrasePrompt.tsx:97
+msgid "Failed to remove passphrase: {error}"
+msgstr ""
+
+#: src/components/settings/SetPassphrasePrompt.tsx:92
+msgid "Failed to set passphrase: {error}"
+msgstr ""
+
+#: src/components/settings/ChangePassphrasePrompt.tsx:120
+msgid "Failed to update passphrase: {error}"
+msgstr ""
+
+#: src/components/dashboard/DashboardSideBar.tsx:57
 #: src/components/wallet/coloured/WalletColoured.tsx:610
-#: src/components/wallet/standard/WalletStandard.tsx:532
+#: src/components/wallet/standard/WalletStandard.tsx:525
 msgid "Farm"
 msgstr "農家"
 
@@ -754,15 +870,15 @@ msgstr "農家"
 msgid "Farmer Public Key"
 msgstr "農家公開鍵"
 
-#: src/components/block/Block.jsx:267
+#: src/components/block/Block.jsx:268
 msgid "Farmer Puzzle Hash"
 msgstr "農家パズルハッシュ値"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:163
+#: src/components/farm/FarmManageFarmingRewards.tsx:167
 msgid "Farmer Reward Address"
 msgstr "農家報酬アドレス"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:137
+#: src/components/farm/FarmManageFarmingRewards.tsx:141
 msgid "Farmer Reward Address is not properly formatted."
 msgstr ""
 
@@ -770,7 +886,7 @@ msgstr ""
 #~ msgid "Farmer Reward Address is not properly formatted. Using 'paste' is recommended."
 #~ msgstr "Farmer Reward Address is not properly formatted. Using 'paste' is recommended."
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:131
+#: src/components/farm/FarmManageFarmingRewards.tsx:135
 msgid "Farmer Reward Address must not be empty."
 msgstr ""
 
@@ -784,7 +900,7 @@ msgstr "農家が未接続"
 msgid "Farmer is not running"
 msgstr "農家が未実行"
 
-#: src/middleware/middleware_api.jsx:275
+#: src/middleware/middleware_api.jsx:247
 msgid "Farmer public key:"
 msgstr ""
 
@@ -817,12 +933,12 @@ msgstr "耕作の状態"
 #: src/components/wallet/create/createRLAdmin.jsx:244
 #: src/components/wallet/create/createRLAdmin.jsx:272
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:733
-#: src/components/wallet/standard/WalletStandard.tsx:524
+#: src/components/wallet/standard/WalletStandard.tsx:517
 msgid "Fee"
 msgstr "手数料"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:420
-#~ msgid "Fee (TXCH)"
+#~ msgid "Fee (TXETH)"
 #~ msgstr ""
 
 #: src/components/wallet/coloured/WalletColoured.tsx:420
@@ -833,7 +949,7 @@ msgstr "手数料"
 msgid "Fee ({currencyCode})"
 msgstr "手数料 ({currencyCode})"
 
-#: src/components/block/Block.jsx:321
+#: src/components/block/Block.jsx:322
 msgid "Fees Amount"
 msgstr "全手数料"
 
@@ -841,14 +957,15 @@ msgstr "全手数料"
 #~ msgid "Fees Puzzle Hash"
 #~ msgstr ""
 
-#: src/electron/main.tsx:255
-#: src/electron/main.tsx:456
+#: src/electron/main.tsx:264
+#: src/electron/main.tsx:465
 msgid "File"
 msgstr "ファイル"
 
 #: src/components/plot/PlotsFailed.tsx:14
 #: src/components/plot/PlotsNotFound.tsx:14
 #: src/components/plot/overview/PlotOverviewPlots.tsx:106
+#: src/components/wallet/did/WalletDID.tsx:978
 msgid "Filename"
 msgstr "ファイル名"
 
@@ -861,15 +978,15 @@ msgstr "最終フォルダの場所"
 msgid "Finished"
 msgstr "完成"
 
-#: src/electron/main.tsx:407
+#: src/electron/main.tsx:416
 msgid "Follow on Twitter"
 msgstr "Twitter でフォロー"
 
-#: src/electron/main.tsx:366
+#: src/electron/main.tsx:375
 msgid "Frequently Asked Questions"
 msgstr "よくある質問"
 
-#: src/components/dashboard/DashboardSideBar.tsx:39
+#: src/components/dashboard/DashboardSideBar.tsx:41
 #: src/components/fullNode/FullNode.jsx:323
 msgid "Full Node"
 msgstr "フルノード"
@@ -882,7 +999,7 @@ msgstr ""
 #~ msgid "Full Node Status"
 #~ msgstr "Full Node Status"
 
-#: src/electron/main.tsx:332
+#: src/electron/main.tsx:341
 msgid "Full Screen"
 msgstr "全画面表示"
 
@@ -898,7 +1015,7 @@ msgstr "新しい色を生成"
 msgid "Grid view"
 msgstr ""
 
-#: src/components/wallet/standard/WalletStandard.tsx:583
+#: src/components/wallet/standard/WalletStandard.tsx:576
 msgid "HD or Hierarchical Deterministic keys are a type of public key/private key scheme where one private key can have a nearly infinite number of different public keys (and therefor wallet receive addresses) that will all ultimately come back to and be spendable by a single private key."
 msgstr "階層的決定性鍵、または HD 鍵とは、一つの秘密鍵に無数の公開鍵 (= ウォレットの受け取りアドレス) を対応させることができる公開・秘密鍵の生成方法です。どの公開鍵への入金も、最終的には同じ秘密鍵に着金し、同じ秘密鍵で支払うことができます。"
 
@@ -914,17 +1031,17 @@ msgstr "収穫機上の耕地"
 msgid "Header Hash"
 msgstr "ヘッダーのハッシュ値"
 
-#: src/components/block/Block.jsx:185
+#: src/components/block/Block.jsx:186
 msgid "Header hash"
 msgstr "ヘッダーのハッシュ値"
 
-#: src/components/block/Block.jsx:201
+#: src/components/block/Block.jsx:202
 #: src/components/fullNode/FullNode.jsx:81
 #: src/components/fullNode/FullNodeConnections.tsx:79
 msgid "Height"
 msgstr "高さ"
 
-#: src/electron/main.tsx:354
+#: src/electron/main.tsx:363
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -935,6 +1052,11 @@ msgstr "翻訳に協力"
 #: src/components/core/components/AdvancedOptions/AdvancedOptions.tsx:75
 msgid "Hide Advanced Options"
 msgstr "詳細設定を隠す"
+
+#: src/components/app/AppPassPrompt.tsx:233
+#: src/components/settings/RemovePassphrasePrompt.tsx:134
+msgid "Hint"
+msgstr ""
 
 #: src/components/wallet/WalletHistory.tsx:91
 msgid "History"
@@ -957,11 +1079,11 @@ msgstr "IP アドレス・ホスト"
 msgid "If none selected, then it will default to the temporary directory."
 msgstr "空欄の場合、1つ目の一時ディレクトリを使用します。"
 
-#: src/components/wallet/WalletImport.tsx:144
+#: src/components/wallet/WalletImport.tsx:143
 msgid "Import Wallet from Mnemonics"
 msgstr "合言葉でウォレットをインポート"
 
-#: src/components/selectKey/SelectKey.tsx:220
+#: src/components/selectKey/SelectKey.tsx:264
 msgid "Import from Mnemonics (24 words)"
 msgstr "合言葉 (24語) で鍵をインポート"
 
@@ -1010,7 +1132,7 @@ msgstr "インターバル"
 msgid "Invalid state"
 msgstr ""
 
-#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:90
+#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:94
 msgid "It is a one-time login link that can be used to log in to a pool's website. It contains a signature using the farmer's key from the plot NFT. Not all pools support this feature."
 msgstr ""
 
@@ -1026,22 +1148,26 @@ msgid "Join a Pool"
 msgstr ""
 
 #: src/components/plot/add/PlotAddNFT.tsx:44
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile."
+msgid "Join a pool and get consistent XETH farming rewards. The average returns are the same, but it is much less volatile."
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:59
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
+msgid "Join a pool and get consistent XETH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
 msgstr ""
 
 #: src/components/plot/add/PlotAddNFT.tsx:133
-msgid "Join a pool and get more consistent XCH farming rewards. Create a plot NFT and assign your new plots to a group."
+msgid "Join a pool and get more consistent XETH farming rewards. Create a plot NFT and assign your new plots to a group."
 msgstr ""
 
 #: src/components/plot/overview/PlotOverviewPlots.tsx:63
 msgid "K-Size"
 msgstr "K 値"
 
-#: src/components/dashboard/DashboardSideBar.tsx:66
+#: src/components/app/AppKeyringMigrator.tsx:86
+msgid "Keyring migration failed: {error}"
+msgstr ""
+
+#: src/components/dashboard/DashboardSideBar.tsx:63
 msgid "Keys"
 msgstr "鍵"
 
@@ -1067,8 +1193,8 @@ msgstr "最近のブロックチャレンジ"
 msgid "Launcher Id"
 msgstr ""
 
-#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:100
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:114
+#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:104
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:119
 msgid "Learn More"
 msgstr ""
 
@@ -1084,7 +1210,7 @@ msgstr ""
 msgid "Loading Plot NFTs"
 msgstr ""
 
-#: src/components/wallet/Wallets.tsx:172
+#: src/components/wallet/Wallets.tsx:117
 msgid "Loading list of wallets"
 msgstr ""
 
@@ -1096,7 +1222,7 @@ msgstr "読み込み中…"
 #~ msgid "Local Harvester Plots"
 #~ msgstr "Local Harvester Plots"
 
-#: src/components/app/AppRouter.tsx:41
+#: src/components/app/AppRouter.tsx:68
 msgid "Logging in"
 msgstr "ログイン中"
 
@@ -1144,13 +1270,38 @@ msgstr "ログイン中"
 msgid "Manage Farming Rewards"
 msgstr "耕作報酬の管理"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:119
+#: src/components/wallet/did/WalletDID.tsx:806
+msgid "Manage Recovery DIDs"
+msgstr ""
+
+#: src/components/farm/FarmManageFarmingRewards.tsx:123
 msgid "Manage Your Farming Rewards Target Addresses"
 msgstr "あなたの耕作報酬の宛先アドレスを管理"
 
 #: src/components/fullNode/FullNodeConnections.tsx:68
 msgid "MiB Up/Down"
 msgstr "アップロード・ダウンロード [MiB]"
+
+#: src/components/selectKey/SelectKey.tsx:137
+msgid "Migrate"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:182
+msgid "Migrate Keyring"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:226
+msgid "Migrate Keys"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:121
+#: src/components/selectKey/SelectKey.tsx:136
+msgid "Migration required"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:121
+msgid "Migration required to support passphrase protection"
+msgstr ""
 
 #: src/components/pool/PoolInfo.tsx:27
 msgid "Minimum Difficulty"
@@ -1163,6 +1314,10 @@ msgstr "分"
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:116
 msgid "More memory slightly increases speed"
 msgstr "メモリ使用量を増やすと速度が微上昇します"
+
+#: src/components/wallet/did/WalletDID.tsx:537
+msgid "My DID Wallet"
+msgstr ""
 
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:415
 msgid "My Pubkey"
@@ -1181,17 +1336,25 @@ msgstr "ネットワーク名"
 #~ msgstr "Network not launched yet, waiting for genesis challenge!"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:685
-#: src/components/wallet/standard/WalletStandard.tsx:579
+#: src/components/wallet/standard/WalletStandard.tsx:572
 msgid "New Address"
 msgstr "新規アドレス"
+
+#: src/components/settings/ChangePassphrasePrompt.tsx:188
+msgid "New Passphrase"
+msgstr ""
 
 #: src/components/wallet/WalletAdd.tsx:63
 msgid "New Wallet"
 msgstr "新規ウォレット作成"
 
-#: src/components/block/Block.jsx:350
+#: src/components/app/AppPassPrompt.tsx:60
+msgid "New passphrase is the same as your current passphrase"
+msgstr ""
+
+#: src/components/block/Block.jsx:351
 #: src/components/wallet/WalletAdd.tsx:95
-#: src/components/wallet/WalletImport.tsx:163
+#: src/components/wallet/WalletImport.tsx:162
 msgid "Next"
 msgstr "次へ"
 
@@ -1200,11 +1363,11 @@ msgid "Nickname"
 msgstr "ニックネーム"
 
 #: src/components/trading/TradingOverview.jsx:209
-#: src/electron/main.tsx:192
+#: src/electron/main.tsx:191
 msgid "No"
 msgstr "いいえ"
 
-#: src/middleware/middleware_api.jsx:301
+#: src/middleware/middleware_api.jsx:273
 msgid "No 24 word seed, since this key is imported."
 msgstr "この鍵はインポートされているため、24語の種がありません。"
 
@@ -1216,7 +1379,7 @@ msgstr "まだ収穫ブロックはありません"
 msgid "No previous transactions"
 msgstr "履歴無し"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:156
+#: src/components/farm/FarmManageFarmingRewards.tsx:160
 msgid "No private keys for one or both addresses. Safe only if you are sending rewards to another wallet."
 msgstr "いずれか、または両方のアドレスの秘密鍵がありません。他のウォレットに報酬を送る場合のみ安全です。"
 
@@ -1268,8 +1431,12 @@ msgstr "未接続"
 msgid "Not found Plots"
 msgstr "見つからない耕地"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:184
-msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCH reward for pooling plots."
+#: src/components/farm/FarmManageFarmingRewards.tsx:188
+#~ msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XETH reward for pooling plots."
+#~ msgstr ""
+
+#: src/components/farm/FarmManageFarmingRewards.tsx:188
+msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the XETH reward for pooling plots."
 msgstr ""
 
 #: src/components/plotNFT/PlotExternalNFTCard.tsx:118
@@ -1286,7 +1453,7 @@ msgid "Number of threads"
 msgstr "スレッド数"
 
 #: src/components/core/components/ConfirmDialog/ConfirmDialog.tsx:87
-#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:111
+#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:115
 msgid "OK"
 msgstr "OK"
 
@@ -1298,13 +1465,66 @@ msgstr "注文"
 msgid "Offers Created"
 msgstr "作成した注文"
 
-#: src/components/wallet/standard/WalletStandard.tsx:485
+#: src/components/wallet/standard/WalletStandard.tsx:478
 msgid "On average there is one minute between each transaction block. Unless there is congestion you can expect your transaction to be included in less than a minute."
 msgstr "取引ブロックは約1分間隔で作成されます。混雑時を除き、1分以内にあなたの送金も取り込まれるはずです。"
+
+#: src/components/wallet/did/WalletDIDRecovery.tsx:34
+msgid "Only one backup file is allowed."
+msgstr ""
+
+#: src/components/wallet/create/recoverDIDWallet.js:156
+#~ msgid "Only one backup file is allowed. To add a new backup file, please delete any previously uploaded files and try again."
+#~ msgstr "Only one backup file is allowed. To add a new backup file, please delete any previously uploaded files and try again."
 
 #: src/components/wallet/WalletHistory.tsx:23
 msgid "Outgoing"
 msgstr "出金"
+
+#: src/components/app/AppKeyringMigrator.tsx:135
+#: src/components/app/AppKeyringMigrator.tsx:136
+#: src/components/app/AppPassPrompt.tsx:225
+#: src/components/settings/RemovePassphrasePrompt.tsx:126
+#: src/components/settings/SetPassphrasePrompt.tsx:155
+msgid "Passphrase"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:159
+#: src/components/settings/ChangePassphrasePrompt.tsx:209
+#: src/components/settings/SetPassphrasePrompt.tsx:179
+msgid "Passphrase Hint"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:158
+#: src/components/settings/ChangePassphrasePrompt.tsx:208
+#: src/components/settings/SetPassphrasePrompt.tsx:178
+msgid "Passphrase Hint (Optional)"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:213
+msgid "Passphrase Settings"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:152
+#: src/components/settings/RemovePassphrasePrompt.tsx:67
+msgid "Passphrase is incorrect"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:93
+msgid "Passphrase protection has been disabled"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:131
+msgid "Passphrase protection is disabled"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:128
+msgid "Passphrase protection is enabled"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:122
+msgid "Passphrase support requires migrating your keys to a new keyring"
+msgstr ""
 
 #: src/components/plotNFT/PlotNFTCard.tsx:361
 msgid "Payout Address"
@@ -1355,21 +1575,52 @@ msgstr "交換条件を追加してください。"
 msgid "Please enter 0 fee. Positive fees not supported yet for RL."
 msgstr "手数料は 0 を入力してください。 RL ではまだ正の手数料が未実装です。"
 
+#: src/components/wallet/did/WalletDID.tsx:927
+msgid "Please enter a coin"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:526
+#: src/components/wallet/did/WalletDID.tsx:917
+msgid "Please enter a filename"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:136
+#: src/components/settings/SetPassphrasePrompt.tsx:57
+msgid "Please enter a passphrase"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:937
+msgid "Please enter a pubkey"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:947
+msgid "Please enter a puzzlehash"
+msgstr ""
+
 #: src/components/wallet/create/createRLAdmin.jsx:140
 msgid "Please enter a valid initial coin amount"
 msgstr "有効な初期金額を入力してください"
 
+#: src/components/wallet/did/WalletDID.tsx:777
+#: src/components/wallet/did/WalletDIDCreate.tsx:76
+msgid "Please enter a valid integer of 0 or greater for the number of Backup IDs needed for recovery."
+msgstr ""
+
 #: src/components/wallet/create/createNewColouredCoin.jsx:69
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:639
-#: src/components/wallet/standard/WalletStandard.tsx:432
+#: src/components/wallet/standard/WalletStandard.tsx:430
 msgid "Please enter a valid numeric amount"
 msgstr "数字を入力してください"
+
+#: src/components/wallet/did/WalletDIDCreate.tsx:50
+msgid "Please enter a valid numeric amount."
+msgstr ""
 
 #: src/components/wallet/create/createExistingColouredCoin.jsx:70
 #: src/components/wallet/create/createNewColouredCoin.jsx:79
 #: src/components/wallet/create/createRLAdmin.jsx:150
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:649
-#: src/components/wallet/standard/WalletStandard.tsx:444
+#: src/components/wallet/standard/WalletStandard.tsx:440
 msgid "Please enter a valid numeric fee"
 msgstr "数字の手数料を入力してください"
 
@@ -1385,6 +1636,20 @@ msgstr "支払い可能額を数字で入力してください"
 msgid "Please enter a valid pubkey"
 msgstr "有効な公開鍵を入力してください"
 
+#: src/components/settings/ChangePassphrasePrompt.tsx:63
+msgid "Please enter your current passphrase, and a new passphrase"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:185
+#: src/components/app/AppPassPrompt.tsx:201
+#: src/components/settings/RemovePassphrasePrompt.tsx:50
+msgid "Please enter your passphrase"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:195
+msgid "Please enter your passphrase to proceed"
+msgstr ""
+
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:623
 #: src/components/wallet/standard/WalletStandard.tsx:420
 msgid "Please finish syncing before making a transaction"
@@ -1393,6 +1658,10 @@ msgstr "取引を行う前に同期を完了してください"
 #: src/components/trading/CreateOffer.jsx:66
 msgid "Please select amount"
 msgstr "額を選択してください"
+
+#: src/components/wallet/did/WalletDIDRecovery.tsx:55
+msgid "Please select backup file first"
+msgstr ""
 
 #: src/components/trading/CreateOffer.jsx:76
 msgid "Please select buy or sell"
@@ -1420,6 +1689,7 @@ msgstr "一時ディレクトリを指定してください"
 msgid "Please wait for synchronization"
 msgstr ""
 
+#: src/components/wallet/did/WalletDIDRecovery.tsx:64
 #: src/hooks/useJoinPool.tsx:27
 msgid "Please wait for wallet synchronization"
 msgstr ""
@@ -1433,7 +1703,7 @@ msgstr "耕地"
 msgid "Plot Count"
 msgstr "耕地数"
 
-#: src/components/block/Block.jsx:299
+#: src/components/block/Block.jsx:300
 msgid "Plot Id"
 msgstr "耕地 Id"
 
@@ -1454,7 +1724,7 @@ msgstr ""
 #~ msgid "Plot Name"
 #~ msgstr ""
 
-#: src/components/block/Block.jsx:259
+#: src/components/block/Block.jsx:260
 msgid "Plot Public Key"
 msgstr "耕地公開鍵"
 
@@ -1482,7 +1752,7 @@ msgstr "この耕地は {0} と重複しています"
 msgid "PlotNFT is transitioning to (target state). This can take a while. Please do not close the application until this is finalized."
 msgstr ""
 
-#: src/components/dashboard/DashboardSideBar.tsx:50
+#: src/components/dashboard/DashboardSideBar.tsx:52
 msgid "Plots"
 msgstr "耕地"
 
@@ -1491,8 +1761,8 @@ msgid "Plots Passed Filter"
 msgstr "フィルターを通過した耕地数"
 
 #: src/components/plot/overview/PlotOverviewHero.tsx:35
-msgid "Plots are allocated space on your hard drive used to farm and earn ethgreen. <0>Learn more</0>"
-msgstr "耕地とは、チアを収穫し、得るためにハードドライブ上に確保する領域です。<0>詳しく</0>"
+msgid "Plots are allocated space on your hard drive used to farm and earn Ethgreen. <0>Learn more</0>"
+msgstr "耕地とは、Ethgreenを収穫し、得るためにハードドライブ上に確保する領域です。<0>詳しく</0>"
 
 #: src/components/plot/queue/PlotQueueIndicator.tsx:34
 msgid "Plotting"
@@ -1525,7 +1795,6 @@ msgstr ""
 msgid "Points Successful in Last 24 Hours"
 msgstr ""
 
-#: src/components/dashboard/DashboardSideBar.tsx:60
 #: src/components/pool/Pool.tsx:25
 msgid "Pool"
 msgstr ""
@@ -1538,28 +1807,28 @@ msgstr ""
 msgid "Pool Key"
 msgstr "プール鍵"
 
-#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:77
+#: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:81
 msgid "Pool Login Link"
 msgstr ""
 
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:87
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:92
 msgid "Pool Payout Instructions"
 msgstr ""
 
-#: src/components/block/Block.jsx:263
+#: src/components/block/Block.jsx:264
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:222
 msgid "Pool Public Key"
 msgstr "プール公開鍵"
 
-#: src/components/block/Block.jsx:283
+#: src/components/block/Block.jsx:284
 msgid "Pool Puzzle Hash"
 msgstr "プールパズルハッシュ値"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:173
+#: src/components/farm/FarmManageFarmingRewards.tsx:177
 msgid "Pool Reward Address"
 msgstr "プール報酬アドレス"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:149
+#: src/components/farm/FarmManageFarmingRewards.tsx:153
 msgid "Pool Reward Address is not properly formatted."
 msgstr ""
 
@@ -1567,11 +1836,11 @@ msgstr ""
 #~ msgid "Pool Reward Address is not properly formatted. Using 'paste' is recommended."
 #~ msgstr "Pool Reward Address is not properly formatted. Using 'paste' is recommended."
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:144
+#: src/components/farm/FarmManageFarmingRewards.tsx:148
 msgid "Pool Reward Address must not be empty."
 msgstr ""
 
-#: src/components/block/Block.jsx:313
+#: src/components/block/Block.jsx:314
 msgid "Pool Reward Amount"
 msgstr "プール報酬額"
 
@@ -1583,7 +1852,7 @@ msgstr ""
 msgid "Pool does not provide target_puzzle_hash."
 msgstr ""
 
-#: src/middleware/middleware_api.jsx:283
+#: src/middleware/middleware_api.jsx:255
 msgid "Pool public key:"
 msgstr ""
 
@@ -1614,7 +1883,7 @@ msgstr ""
 msgid "Preparing standard wallet"
 msgstr ""
 
-#: src/components/block/Block.jsx:347
+#: src/components/block/Block.jsx:348
 msgid "Previous"
 msgstr "前へ"
 
@@ -1622,7 +1891,7 @@ msgstr "前へ"
 #~ msgid "Previous Block Hash"
 #~ msgstr ""
 
-#: src/components/block/Block.jsx:215
+#: src/components/block/Block.jsx:216
 msgid "Previous Header Hash"
 msgstr "前ヘッダーハッシュ値"
 
@@ -1630,19 +1899,19 @@ msgstr "前ヘッダーハッシュ値"
 #~ msgid "Previous Sub Block Hash"
 #~ msgstr "Previous Sub Block Hash"
 
-#: src/components/selectKey/SelectKey.tsx:165
+#: src/components/selectKey/SelectKey.tsx:207
 msgid "Private key with public fingerprint {fingerprint}"
 msgstr "公開指紋 {fingerprint} に対応する秘密鍵"
 
-#: src/middleware/middleware_api.jsx:249
+#: src/middleware/middleware_api.jsx:221
 msgid "Private key {0}"
 msgstr "秘密鍵 {0}"
 
-#: src/middleware/middleware_api.jsx:259
+#: src/middleware/middleware_api.jsx:231
 msgid "Private key:"
 msgstr "秘密鍵:"
 
-#: src/components/block/Block.jsx:251
+#: src/components/block/Block.jsx:252
 msgid "Proof of Space Size"
 msgstr "空間証明の大きさ"
 
@@ -1655,12 +1924,17 @@ msgid "Protocol Version"
 msgstr ""
 
 #: src/components/wallet/create/createRLAdmin.jsx:297
+#: src/components/wallet/did/WalletDID.tsx:996
 msgid "Pubkey"
 msgstr "公開鍵"
 
-#: src/middleware/middleware_api.jsx:267
+#: src/middleware/middleware_api.jsx:239
 msgid "Public key:"
 msgstr "公開鍵:"
+
+#: src/components/wallet/did/WalletDID.tsx:1005
+msgid "Puzzlehash"
+msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:162
 msgid "Queue Name"
@@ -1690,7 +1964,7 @@ msgstr "最大使用 RAM"
 #~ msgid "RLListItems.title"
 #~ msgstr ""
 
-#: src/components/wallet/create/WalletCreate.jsx:124
+#: src/components/wallet/create/WalletCreateList.tsx:42
 msgid "Rate Limited"
 msgstr "レート制限付き"
 
@@ -1699,7 +1973,7 @@ msgstr "レート制限付き"
 msgid "Rate Limited Info"
 msgstr "レート制限付きの情報"
 
-#: src/components/wallet/create/WalletCreate.jsx:214
+#: src/components/wallet/create/WalletCreate.jsx:176
 msgid "Rate Limited Options"
 msgstr "レート制限付きのオプション"
 
@@ -1708,13 +1982,31 @@ msgid "Rate Limited User Wallet Setup"
 msgstr "レート制限付きユーザーウォレットのセットアップ"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:650
-#: src/components/wallet/standard/WalletStandard.tsx:576
+#: src/components/wallet/standard/WalletStandard.tsx:569
 msgid "Receive Address"
 msgstr "受取アドレス"
 
-#: src/components/wallet/create/WalletCreate.jsx:282
-msgid "Recover DID wallet"
-msgstr "DID ウォレットを復元"
+#: src/components/wallet/did/WalletDID.tsx:464
+#: src/components/wallet/did/WalletDIDRecovery.tsx:124
+msgid "Recover"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:340
+#: src/components/wallet/did/WalletDID.tsx:480
+msgid "Recover DID Wallet"
+msgstr ""
+
+#: src/components/wallet/create/WalletCreate.jsx:296
+#~ msgid "Recover DID wallet"
+#~ msgstr "Recover DID wallet"
+
+#: src/components/wallet/did/WalletDIDRecovery.tsx:84
+msgid "Recover Distributed Identity Wallet"
+msgstr ""
+
+#: src/components/wallet/did/WalletDIDSelect.tsx:39
+msgid "Recover Wallet"
+msgstr ""
 
 #: src/components/plot/PlotHeader.tsx:78
 #: src/components/plot/overview/PlotOverviewHero.tsx:62
@@ -1725,9 +2017,19 @@ msgstr "耕地一覧を更新"
 msgid "Relative Lock Height"
 msgstr ""
 
-#: src/electron/main.tsx:374
+#: src/electron/main.tsx:383
 msgid "Release Notes"
 msgstr "リリースノート"
+
+#: src/components/settings/RemovePassphrasePrompt.tsx:114
+#: src/components/settings/RemovePassphrasePrompt.tsx:161
+#: src/components/settings/Settings.tsx:194
+msgid "Remove Passphrase"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:192
+msgid "Remove keys from old keyring upon successful migration"
+msgstr ""
 
 #: src/components/plot/queue/PlotQueueIndicator.tsx:36
 msgid "Removing"
@@ -1737,7 +2039,7 @@ msgstr "削除中"
 msgid "Rename"
 msgstr "名称変更"
 
-#: src/electron/main.tsx:393
+#: src/electron/main.tsx:402
 msgid "Report an Issue..."
 msgstr "問題を報告"
 
@@ -1758,11 +2060,17 @@ msgstr "バックアップからカラードコイン・その他スマートウ
 msgid "Safe To Skip"
 msgstr "安全にスキップ可能"
 
-#: src/components/farm/FarmManageFarmingRewards.tsx:199
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:126
+#: src/components/farm/FarmManageFarmingRewards.tsx:203
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:131
 #: src/components/trading/CreateOffer.jsx:142
 msgid "Save"
 msgstr "保存"
+
+#: src/components/app/AppKeyringMigrator.tsx:174
+#: src/components/settings/ChangePassphrasePrompt.tsx:224
+#: src/components/settings/SetPassphrasePrompt.tsx:194
+msgid "Save passphrase"
+msgstr ""
 
 #: src/components/fullNode/FullNode.jsx:338
 #~ msgid "Search"
@@ -1776,11 +2084,15 @@ msgstr "ヘッダーハッシュ値でブロックを検索"
 msgid "Second temporary folder location"
 msgstr "2つ目の一時フォルダの場所"
 
-#: src/components/selectKey/SelectKey.tsx:174
+#: src/components/settings/Settings.tsx:124
+msgid "Secure your keychain using a strong passphrase"
+msgstr ""
+
+#: src/components/selectKey/SelectKey.tsx:216
 msgid "See private key"
 msgstr "秘密鍵を表示"
 
-#: src/middleware/middleware_api.jsx:293
+#: src/middleware/middleware_api.jsx:265
 msgid "Seed:"
 msgstr "シード値:"
 
@@ -1792,7 +2104,7 @@ msgstr "2つ目の一時ファイルのディレクトリを選択"
 msgid "Select Final Directory"
 msgstr "最終ディレクトリを選択"
 
-#: src/components/selectKey/SelectKey.tsx:133
+#: src/components/selectKey/SelectKey.tsx:175
 msgid "Select Key"
 msgstr "鍵を選択してください:"
 
@@ -1804,7 +2116,7 @@ msgstr "注文を選択"
 msgid "Select Temporary Directory"
 msgstr "一時ファイルのディレクトリを選択"
 
-#: src/components/wallet/create/WalletCreate.jsx:108
+#: src/components/wallet/create/WalletCreateList.tsx:21
 msgid "Select Wallet Type"
 msgstr "ウォレットの種類を選択してください:"
 
@@ -1834,13 +2146,17 @@ msgstr ""
 msgid "Selected"
 msgstr "選択済"
 
+#: src/components/wallet/did/WalletDIDRecovery.tsx:91
+msgid "Selected recovery file:"
+msgstr ""
+
 #: src/components/plotNFT/PlotNFTExternalState.tsx:23
 #: src/components/plotNFT/PlotNFTState.tsx:57
 msgid "Self Pooling"
 msgstr ""
 
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:105
-msgid "Self pool. When you win a block you will earn XCH rewards."
+msgid "Self pool. When you win a block you will earn XETH rewards."
 msgstr ""
 
 #: src/components/trading/CreateOffer.jsx:164
@@ -1851,7 +2167,7 @@ msgstr "売却"
 
 #: src/components/wallet/coloured/WalletColoured.tsx:620
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:748
-#: src/components/wallet/standard/WalletStandard.tsx:542
+#: src/components/wallet/standard/WalletStandard.tsx:535
 msgid "Send"
 msgstr "送る"
 
@@ -1862,6 +2178,21 @@ msgstr "レート制限ウォレットのユーザーに、セットアップを
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:279
 msgid "Send your pubkey to your Rate Limited Wallet admin:"
 msgstr "レート制限付きウォレットの管理者にあなたの公開鍵を送ってください:"
+
+#: src/components/settings/SetPassphrasePrompt.tsx:141
+#: src/components/settings/SetPassphrasePrompt.tsx:220
+#: src/components/settings/Settings.tsx:205
+msgid "Set Passphrase"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:75
+msgid "Setting a passphrase is strongly recommended to protect your keys. Are you sure you want to skip setting a passphrase?"
+msgstr ""
+
+#: src/components/dashboard/DashboardSideBar.tsx:70
+#: src/components/settings/Settings.tsx:239
+msgid "Settings"
+msgstr ""
 
 #: src/components/core/components/AdvancedOptions/AdvancedOptions.tsx:74
 msgid "Show Advanced Options"
@@ -1876,13 +2207,23 @@ msgstr "詳細設定を表示"
 msgid "Side"
 msgstr "売買種別"
 
-#: src/components/selectKey/SelectKey.tsx:138
+#: src/components/selectKey/SelectKey.tsx:180
 msgid "Sign In"
 msgstr "ログイン"
 
-#: src/components/backup/BackupRestore.tsx:122
-#~ msgid "Skip"
-#~ msgstr ""
+#: src/components/app/AppKeyringMigrator.tsx:49
+#: src/components/app/AppKeyringMigrator.tsx:215
+#: src/components/app/AppPassPrompt.tsx:74
+msgid "Skip"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:48
+msgid "Skip Keyring Migration"
+msgstr ""
+
+#: src/components/app/AppPassPrompt.tsx:73
+msgid "Skip Passphrase Protection"
+msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:129
 #~ msgid "Skips adding [final dir] to harvester for farming"
@@ -1893,14 +2234,14 @@ msgid "Skips adding a final directory to harvester for farming"
 msgstr "最終ディレクトリを収穫機に追加せず、ディレクトリ内の耕地で耕作しません。"
 
 #: src/components/pool/PoolHero.tsx:26
-msgid "Smooth out your XCH farming rewards by joining a pool."
+msgid "Smooth out your XETH farming rewards by joining a pool."
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:60
 msgid "Something went wrong"
 msgstr ""
 
-#: src/electron/main.tsx:470
+#: src/electron/main.tsx:479
 msgid "Speech"
 msgstr "スピーチ"
 
@@ -1930,7 +2271,7 @@ msgstr "支払いインターバル長 (ブロック数)"
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:401
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:448
 msgid "Spending Limit (ethgreen per interval): {0}"
-msgstr "支払い額上限 (チア毎インターバル): {0}"
+msgstr "支払い額上限 (Ethgreen毎インターバル): {0}"
 
 #: src/components/fullNode/FullNode.jsx:100
 msgid "State"
@@ -1945,7 +2286,7 @@ msgstr "状態"
 #: src/components/trading/TradingOverview.jsx:128
 #: src/components/wallet/WalletHistory.tsx:55
 #: src/components/wallet/WalletStatusCard.tsx:22
-#: src/components/wallet/Wallets.tsx:118
+#: src/components/wallet/Wallets.tsx:50
 msgid "Status"
 msgstr "状態"
 
@@ -1978,12 +2319,18 @@ msgstr "状態:"
 #~ msgstr "Sub Block Height"
 
 #: src/components/block/Block.jsx:338
-#~ msgid "Sub Block at height {0} in the ETHGreen Blockchain"
-#~ msgstr "Sub Block at height {0} in the ETHGreen Blockchain"
+#~ msgid "Sub Block at height {0} in the Ethgreen blockchain"
+#~ msgstr "Sub Block at height {0} in the Ethgreen blockchain"
 
+#: src/components/app/AppPassPrompt.tsx:202
+#: src/components/wallet/did/WalletDID.tsx:889
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:347
 msgid "Submit"
 msgstr "提出"
+
+#: src/components/wallet/EnterPassphrasePrompt.tsx:146
+#~ msgid "Submit Passphrase"
+#~ msgstr ""
 
 #: src/components/fullNode/card/FullNodeCardStatus.tsx:43
 #: src/components/wallet/WalletStatus.tsx:33
@@ -2006,23 +2353,23 @@ msgstr "同期中 <0/>/<1/>"
 #~ msgstr "Syncing {progress}/{tip}"
 
 #: src/components/farm/card/FarmCardBlockRewards.tsx:15
-#~ msgid "TXCH Block Rewards"
+#~ msgid "TXETH Block Rewards"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardCoinbaseRewards.tsx:12
-#~ msgid "TXCH Farming Rewards"
+#~ msgid "TXETH Farming Rewards"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardFeesReward.tsx:12
-#~ msgid "TXCH Fees Collected"
+#~ msgid "TXETH Fees Collected"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardUserFees.tsx:12
-#~ msgid "TXCH User Fees"
-#~ msgstr "TXCH User Fees"
+#~ msgid "TXETH User Fees"
+#~ msgstr "TXETH User Fees"
 
 #: src/components/farm/card/FarmCardUserFees.tsx:15
-#~ msgid "TXCH User Transaction Fees"
+#~ msgid "TXETH User Transaction Fees"
 #~ msgstr ""
 
 #: src/components/pool/PoolInfo.tsx:37
@@ -2037,7 +2384,7 @@ msgstr ""
 msgid "Temporary folder location"
 msgstr "一時フォルダの場所"
 
-#: src/components/app/AppTimeBomb.tsx:30
+#: src/components/app/AppTimeBomb.tsx:28
 msgid "The application will stop working at block height 193536."
 msgstr "アプリケーションはブロック高さ 193536 で正常に機能しなくなります。"
 
@@ -2057,6 +2404,11 @@ msgstr "ノードが同期されていません"
 #: src/components/fullNode/card/FullNodeCardStatus.tsx:29
 msgid "The node is syncing, which means it is downloading blocks from other nodes, to reach the latest block in the chain"
 msgstr "ノードが同期中です。ブロックチェーンの先端に辿り着くまで他のノードからブロックをダウンロードします。"
+
+#: src/components/wallet/did/WalletDID.tsx:790
+#: src/components/wallet/did/WalletDIDCreate.tsx:89
+msgid "The number of Backup IDs needed for recovery cannot exceed the number of Backup IDs added."
+msgstr ""
 
 #: src/hooks/usePoolInfo.ts:57
 msgid "The pool URL \"{normalizedUrl}\" is not working. Is it pool? Error: {0}"
@@ -2082,31 +2434,35 @@ msgstr ""
 msgid "The pool switching operation was cancelled, please try again by changing pool, or self pooling"
 msgstr ""
 
-#: src/components/block/Block.jsx:302
+#: src/components/app/AppPassPrompt.tsx:37
+msgid "The provided passphrase and confirmation do not match"
+msgstr ""
+
+#: src/components/block/Block.jsx:303
 msgid "The seed used to create the plot. This depends on the pool pk and plot pk."
 msgstr "耕地作成に使用する種。プール pk 及び耕地 pk に依存した値です。"
 
-#: src/components/block/Block.jsx:228
+#: src/components/block/Block.jsx:229
 msgid "The total number of VDF (verifiable delay function) or proof of time iterations on the whole chain up to this sub block."
 msgstr "このブロックまでに全ブロックチェーンに行った VDF (検証可能遅延関数)、つまり時間証明の評価回数"
 
-#: src/components/block/Block.jsx:244
+#: src/components/block/Block.jsx:245
 msgid "The total number of VDF (verifiable delay function) or proof of time iterations on this block."
 msgstr "このブロックに行った VDF (検証可能遅延関数)、つまり時間証明の評価回数"
 
-#: src/components/block/Block.jsx:324
+#: src/components/block/Block.jsx:325
 msgid "The total transactions fees in this block. Rewarded to the farmer."
 msgstr "このブロック内の取引手数料の合計。農家への報酬となります。"
 
-#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:102
-msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
+#: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:107
+msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XETH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
 msgstr ""
 
 #: src/components/plot/PlotsFailed.tsx:40
 msgid "These plots are invalid, you might want to delete them."
 msgstr "これらの耕地には問題があるため、削除をご検討ください。"
 
-#: src/components/plot/PlotAddDirectoryDialog.tsx:72
+#: src/components/plot/PlotAddDirectoryDialog.tsx:76
 msgid "This allows you to add a directory that has plots in it. If you have not created any plots, go to the plotting screen."
 msgstr "ここから既にお持ちの耕地ディレクトリを追加できます。まだ耕地をお持ちでない場合は耕し画面を開いてください。"
 
@@ -2116,14 +2472,14 @@ msgid "This difficulty is an artifically lower difficulty than on the real netwo
 msgstr ""
 
 #: src/components/trading/CreateOffer.jsx:123
-#: src/hooks/useSelectDirectory.tsx:31
+#: src/hooks/useSelectDirectory.tsx:32
 #: src/hooks/useSelectFile.tsx:21
 msgid "This feature is available only from the GUI."
 msgstr "この機能は GUI 限定です。"
 
 #: src/components/wallet/card/WalletCardSpendableBalance.tsx:26
-msgid "This is the amount of ethgreen that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and ethgreen that you have just spent but is not yet in the blockchain."
-msgstr "取引に使用できるチアの額です。承認待ちの耕作報酬、承認待ちの入金取引、及びブロックチェーンにまだ含まれていない消費チアはいずれも含まれていません。"
+msgid "This is the amount of Ethgreen that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and Ethgreen that you have just spent but is not yet in the blockchain."
+msgstr "取引に使用できるEthgreenの額です。承認待ちの耕作報酬、承認待ちの入金取引、及びブロックチェーンにまだ含まれていない消費Ethgreenはいずれも含まれていません。"
 
 #: src/components/wallet/card/WalletCardPendingChange.tsx:26
 msgid "This is the pending change, which are change coins which you have sent to yourself, but have not been confirmed yet."
@@ -2137,13 +2493,13 @@ msgstr "これが (まだブロックチェーンに含まれていない) 保�
 msgid "This is the time of the latest peak sub block."
 msgstr "最新のピークサブブロックの日時です。"
 
-#: src/components/block/Block.jsx:194
+#: src/components/block/Block.jsx:195
 msgid "This is the time the block was created by the farmer, which is before it is finalized with a proof of time"
 msgstr "これが農家がブロックを作成した日時です。時間証明によって完成する前の段階です。"
 
 #: src/components/wallet/card/WalletCardTotalBalance.tsx:34
 msgid "This is the total amount of ethgreen in the blockchain at the current peak sub block that is controlled by your private keys. It includes frozen farming rewards, but not pending incoming and outgoing transactions."
-msgstr "現在の先端サブブロックにおいて、あなたの秘密鍵が所有している全チアの額です。凍結中の耕作報酬は含まれますが、承認待ちの入出金取引は反映されていません。"
+msgstr "現在の先端サブブロックにおいて、あなたの秘密鍵が所有している全Ethgreenの額です。凍結中の耕作報酬は含まれますが、承認待ちの入出金取引は反映されていません。"
 
 #: src/components/wallet/card/WalletCardPendingTotalBalance.tsx:29
 msgid "This is the total balance + pending balance: it is what your balance will be after all pending transactions are confirmed."
@@ -2188,8 +2544,8 @@ msgid "This trade was included on blockchain at this block height"
 msgstr "このトレードはこのブロック高でブロックチェーンに取り込まれました。"
 
 #: src/components/app/AppTimeBombAlert.tsx:19
-msgid "This version of ethgreen is no longer compatible with the blockchain and can not safely farm."
-msgstr "ご使用のバージョンのチアアプリはブロックチェーンと互換性が無く、安全に耕作できません。"
+msgid "This version of Ethgreen is no longer compatible with the blockchain and can not safely farm."
+msgstr "ご使用のバージョンのEthgreenアプリはブロックチェーンと互換性が無く、安全に耕作できません。"
 
 #: src/components/fullNode/FullNode.jsx:92
 msgid "Time Created"
@@ -2199,7 +2555,7 @@ msgstr "作成日時"
 #~ msgid "Time this trade was created at this time"
 #~ msgstr ""
 
-#: src/components/block/Block.jsx:189
+#: src/components/block/Block.jsx:190
 msgid "Timestamp"
 msgstr "タイムスタンプ"
 
@@ -2213,8 +2569,8 @@ msgstr "宛先"
 msgid "Total Balance"
 msgstr "全残高"
 
-#: src/components/farm/card/FarmCardTotalethgreenFarmed.tsx:15
-#~ msgid "Total ethgreen Farmed"
+#: src/components/farm/card/FarmCardTotalEthgreenFarmed.tsx:15
+#~ msgid "Total Ethgreen Farmed"
 #~ msgstr ""
 
 #: src/components/fullNode/card/FullNodeCardTotalIterations.tsx:20
@@ -2233,7 +2589,7 @@ msgstr "全耕地容量:"
 msgid "Total Size of Plots"
 msgstr "全ての耕地の容量の合計"
 
-#: src/components/block/Block.jsx:225
+#: src/components/block/Block.jsx:226
 msgid "Total VDF Iterations"
 msgstr "全 VDF 評価回数"
 
@@ -2273,7 +2629,7 @@ msgstr "交換"
 msgid "Trading History"
 msgstr "交換履歴"
 
-#: src/components/block/Block.jsx:309
+#: src/components/block/Block.jsx:310
 msgid "Transactions Filter Hash"
 msgstr "取引フィルターハッシュ値"
 
@@ -2302,6 +2658,10 @@ msgstr "一意的識別子"
 msgid "Unknown"
 msgstr "不明"
 
+#: src/components/app/AppPassPrompt.tsx:188
+msgid "Unlock Keyring"
+msgstr ""
+
 #: src/components/core/components/FormBackButton/FormBackButton.tsx:25
 msgid "Unsaved Changes"
 msgstr ""
@@ -2310,6 +2670,10 @@ msgstr ""
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:293
 msgid "User Pubkey"
 msgstr "ユーザー公開鍵"
+
+#: src/components/app/AppPassPrompt.tsx:79
+msgid "Using a passphrase is strongly recommended to protect your keys. Are you sure you want to disable passphrase protection?"
+msgstr ""
 
 #: src/components/fullNode/card/FullNodeCardVDFSubSlotIterations.tsx:20
 msgid "VDF Sub Slot Iterations"
@@ -2327,12 +2691,12 @@ msgstr ""
 msgid "Verify Pool Details"
 msgstr ""
 
-#: src/electron/main.tsx:295
+#: src/electron/main.tsx:304
 msgid "View"
 msgstr "表示"
 
 #: src/components/plot/queue/PlotQueueActions.tsx:79
-#: src/components/plot/queue/PlotQueueLogDialog.tsx:63
+#: src/components/plot/queue/PlotQueueLogDialog.tsx:62
 msgid "View Log"
 msgstr "ログを表示"
 
@@ -2377,20 +2741,24 @@ msgid "Waiting for the transaction to be confirmed"
 msgstr ""
 
 #: src/components/pool/PoolOverview.tsx:185
-#: src/components/wallet/standard/WalletStandard.tsx:674
+#: src/components/wallet/standard/WalletStandard.tsx:649
 msgid "Wallet Status:"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:1121
+msgid "Wallet does not exists"
 msgstr ""
 
 #: src/components/wallet/Wallets.tsx:34
 #~ msgid "WalletItem.ccWallet"
 #~ msgstr ""
 
-#: src/components/wallet/Wallets.tsx:30
-#~ msgid "WalletItem.ethgreenWallet"
-#~ msgstr ""
-
 #: src/components/wallet/Wallets.tsx:48
 #~ msgid "WalletItem.didWallet"
+#~ msgstr ""
+
+#: src/components/wallet/Wallets.tsx:30
+#~ msgid "WalletItem.ethgreenWallet"
 #~ msgstr ""
 
 #: src/components/wallet/Wallets.tsx:41
@@ -2409,8 +2777,8 @@ msgstr ""
 #~ msgid "WalletStatusCard.syncing"
 #~ msgstr ""
 
-#: src/components/dashboard/DashboardSideBar.tsx:45
-#: src/components/wallet/Wallets.tsx:173
+#: src/components/dashboard/DashboardSideBar.tsx:47
+#: src/components/wallet/Wallets.tsx:118
 msgid "Wallets"
 msgstr "ウォレット"
 
@@ -2423,36 +2791,37 @@ msgid "Want to Join a Pool? Create a Plot NFT"
 msgstr ""
 
 #: src/components/plot/overview/PlotOverviewPlots.tsx:139
-msgid "Want to earn more ethgreen? Add more plots to your farm."
-msgstr "畑に耕地を増やしましょう。さらにチアを得られますよ。"
+msgid "Want to earn more Ethgreen? Add more plots to your farm."
+msgstr "畑に耕地を増やしましょう。さらにEthgreenを得られますよ。"
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:86
 msgid "Want to have a delay before the next plot starts?"
 msgstr "次の耕地を耕しはじめる前に遅延時間を挟みますか？"
 
-#: src/components/selectKey/SelectKey.tsx:86
+#: src/components/selectKey/SelectKey.tsx:88
+#: src/components/selectKey/SelectKey.tsx:119
 msgid "Warning: This key is used for a wallet that may have a non-zero balance. By deleting this key you may lose access to this wallet"
 msgstr "注意: この鍵を使用するウォレットは残高がゼロでない可能性があります。この鍵を削除するとウォレットを失くすかもしれません。"
 
-#: src/components/selectKey/SelectKey.tsx:72
+#: src/components/selectKey/SelectKey.tsx:81
 msgid "Warning: This key is used for your farming rewards address. By deleting this key you may lose access to any future farming rewards"
 msgstr "注意: この鍵は耕作報酬アドレスに使われています。この鍵を削除すると、今後の耕作報酬を失くすかもしれません。"
 
-#: src/components/selectKey/SelectKey.tsx:79
+#: src/components/selectKey/SelectKey.tsx:94
 msgid "Warning: This key is used for your pool rewards address. By deleting this key you may lose access to any future pool rewards"
 msgstr "注意: この鍵はプール報酬アドレスに使われています。この鍵を削除すると、今後のプール報酬を失くすかもしれません。"
 
-#: src/components/block/Block.jsx:205
+#: src/components/block/Block.jsx:206
 msgid "Weight"
 msgstr "重さ"
 
-#: src/components/block/Block.jsx:208
+#: src/components/block/Block.jsx:209
 msgid "Weight is the total added difficulty of all sub blocks up to and including this one"
 msgstr "ブロック重とはこのブロックを含めた全てのブロックの難易度の合計です。"
 
-#: src/components/selectKey/SelectKey.tsx:141
-msgid "Welcome to ethgreen. Please log in with an existing key, or create a new key."
-msgstr "チアにようこそ。お持ちの鍵でログインするか、新しく鍵を作成してください。"
+#: src/components/selectKey/SelectKey.tsx:183
+msgid "Welcome to Ethgreen. Please log in with an existing key, or create a new key."
+msgstr "Ethgreenにようこそ。お持ちの鍵でログインするか、新しく鍵を作成してください。"
 
 #: src/components/wallet/WalletAdd.tsx:66
 msgid "Welcome! The following words are used for your wallet backup. Without them, you will lose access to your wallet, keep them safe! Write down each word along with the order number next to them. (Order is important)"
@@ -2462,7 +2831,7 @@ msgstr "ご利用ありがとうございます！以下の合言葉はあなた
 msgid "When you receive the setup info packet from your admin, enter it below to complete your Rate Limited Wallet setup:"
 msgstr "管理者からセットアップ用の情報パケットを受け取ったら、以下に入力してレート制限付きウォレットのセットアップを完了してください:"
 
-#: src/electron/main.tsx:340
+#: src/electron/main.tsx:349
 msgid "Window"
 msgstr "ウィンドウ"
 
@@ -2472,7 +2841,7 @@ msgstr "手数料抜き"
 
 #: src/components/plot/add/PlotAddChooseSize.tsx:35
 #: src/components/trading/TradingOverview.jsx:209
-#: src/electron/main.tsx:193
+#: src/electron/main.tsx:192
 msgid "Yes"
 msgstr "はい"
 
@@ -2489,13 +2858,17 @@ msgstr ""
 msgid "You can still create plots for this plot NFT, but you can not make changes until sync is complete."
 msgstr ""
 
+#: src/components/plot/add/PlotAddChooseSize.tsx:63
+msgid "You do not need to be synced or connected to plot. Temporary files are created during the plotting process which exceed the size of the final plot files. Make sure you have enough space. <0>Learn more</0>"
+msgstr ""
+
 #: src/components/plot/add/PlotAddChooseSize.tsx:56
 #~ msgid "You do not need to be synched or connected to Plot. Temporary files are created during the plotting process which exceed the size of the final plot files. Make sure you have enough space. <0>Learn more</0>"
 #~ msgstr "You do not need to be synched or connected to Plot. Temporary files are created during the plotting process which exceed the size of the final plot files. Make sure you have enough space. <0>Learn more</0>"
 
 #: src/components/plot/add/PlotAddChooseSize.tsx:63
-msgid "You do not need to be synched or connected to plot. Temporary files are created during the plotting process which exceed the size of the final plot files. Make sure you have enough space. <0>Learn more</0>"
-msgstr "耕地作成には同期も接続も必要ありません。耕し中に作成される一時ファイルは、最終的な耕地ファイルより多くの容量を消費します。容量が足りるか今一度ご確認ください。<0>詳しく</0>"
+#~ msgid "You do not need to be synched or connected to plot. Temporary files are created during the plotting process which exceed the size of the final plot files. Make sure you have enough space. <0>Learn more</0>"
+#~ msgstr "耕地作成には同期も接続も必要ありません。耕し中に作成される一時ファイルは、最終的な耕地ファイルより多くの容量を消費します。容量が足りるか今一度ご確認ください。<0>詳しく</0>"
 
 #: src/components/core/components/FormBackButton/FormBackButton.tsx:29
 msgid "You have made changes. Do you want to discard them?"
@@ -2522,8 +2895,8 @@ msgid "You need to claim your rewards first"
 msgstr ""
 
 #: src/components/app/AppTimeBomb.tsx:28
-#~ msgid "You need to upgrade the ethgreen application as this version will stop working soon!"
-#~ msgstr "You need to upgrade the ethgreen application as this version will stop working soon!"
+#~ msgid "You need to upgrade the Ethgreen application as this version will stop working soon!"
+#~ msgstr "You need to upgrade the Ethgreen application as this version will stop working soon!"
 
 #: src/components/plotNFT/select/PlotNFTSelectFaucet.tsx:37
 msgid "You need {currencyCode} to join a pool."
@@ -2535,6 +2908,10 @@ msgstr ""
 
 #: src/hooks/useAbsorbRewards.tsx:49
 msgid "You will recieve <0/> to {address}"
+msgstr ""
+
+#: src/components/wallet/did/WalletDID.tsx:328
+msgid "Your DID requires at least {dids_num_req} attestation file{0} for recovery. Please upload additional files."
 msgstr ""
 
 #: src/components/farm/overview/FarmOverview.tsx:37
@@ -2553,6 +2930,40 @@ msgstr "あなたの収穫機ネットワーク"
 msgid "Your Pool Overview"
 msgstr ""
 
+#: src/components/app/AppPassPrompt.tsx:184
+msgid "Your keyring is locked"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:54
+msgid "Your keys have not been migrated to a new keyring. You will be unable to create new keys or delete existing keys until migration completes. Are you sure you want to skip migrating your keys?"
+msgstr ""
+
+#: src/components/selectKey/SelectKey.tsx:141
+msgid "Your keys have not been migrated to a new keyring. You will be unable to create new keys or delete existing keys until migration completes. Would you like to migrate your keys now?"
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:101
+msgid "Your keys need to be migrated to a new keyring that is optionally secured by a master passphrase."
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:107
+msgid "Your keys need to be migrated to a new keyring that is secured by a master passphrase."
+msgstr ""
+
+#: src/components/app/AppKeyringMigrator.tsx:177
+#: src/components/settings/ChangePassphrasePrompt.tsx:227
+#: src/components/settings/SetPassphrasePrompt.tsx:197
+msgid "Your passphrase can be stored in your system's secure credential store. Ethgreen will be able to access your keys without prompting for your passphrase."
+msgstr ""
+
+#: src/components/settings/Settings.tsx:80
+msgid "Your passphrase has been set"
+msgstr ""
+
+#: src/components/settings/Settings.tsx:67
+msgid "Your passphrase has been updated"
+msgstr ""
+
 #: src/util/getDescriptiveError.ts:5
 msgid "[Error 13] Permission denied. You are trying to access a file/directory without having the necessary permissions. Most likely one of the plot folders in your config.yaml has an issue."
 msgstr "[エラー 13] 不許可。あなたがアクセスしようとしているファイル・ディレクトリへのアクセス権がありません。恐らく config.yaml 内の耕地フォルダのいずれかに問題があります。"
@@ -2562,16 +2973,16 @@ msgid "[Error 22] File not found. Most likely one of the plot folders in your co
 msgstr "[エラー 22] ファイルが見つかりません。恐らく config.yaml 内の耕地フォルダのいずれかに問題があります。"
 
 #: src/components/wallet/WalletStatusCard.tsx:41
-#: src/components/wallet/Wallets.tsx:143
+#: src/components/wallet/Wallets.tsx:75
 msgid "connections:"
 msgstr "接続数:"
 
 #: src/components/wallet/WalletStatusCard.tsx:33
-#: src/components/wallet/Wallets.tsx:135
+#: src/components/wallet/Wallets.tsx:67
 msgid "height:"
 msgstr "高さ:"
 
-#: src/components/wallet/Wallets.tsx:129
+#: src/components/wallet/Wallets.tsx:61
 msgid "not synced"
 msgstr "同期されていません"
 
@@ -2580,19 +2991,23 @@ msgid "p2_singleton_puzzle_hash is not defined"
 msgstr ""
 
 #: src/components/wallet/WalletStatusCard.tsx:27
-#: src/components/wallet/Wallets.tsx:123
+#: src/components/wallet/Wallets.tsx:55
 msgid "status:"
 msgstr "状態:"
 
 #: src/components/wallet/WalletStatusCard.tsx:29
-#: src/components/wallet/Wallets.tsx:128
+#: src/components/wallet/Wallets.tsx:60
 msgid "synced"
 msgstr "同期完了"
 
 #: src/components/wallet/WalletStatusCard.tsx:29
-#: src/components/wallet/Wallets.tsx:127
+#: src/components/wallet/Wallets.tsx:59
 msgid "syncing"
 msgstr "同期中"
+
+#: src/components/app/AppPassPrompt.tsx:48
+msgid "{0, plural, one {Passphrases must be at least # character in length} other {Passphrases must be at least # characters in length}}"
+msgstr ""
 
 #: src/components/farm/card/FarmCardBlockRewards.tsx:16
 #~ msgid "{0} Block Rewards"
@@ -2610,14 +3025,14 @@ msgstr ""
 msgid "{currencyCode} Block Rewards"
 msgstr "{currencyCode} ブロック報酬"
 
-#: src/components/farm/card/FarmCardTotalethgreenFarmed.tsx:29
-msgid "{currencyCode} Total ethgreen Farmed"
-msgstr "{currencyCode} 全収穫チア"
+#: src/components/farm/card/FarmCardTotalEthgreenFarmed.tsx:29
+msgid "{currencyCode} Total Ethgreen Farmed"
+msgstr "{currencyCode} 全収穫Ethgreen"
 
 #: src/components/farm/card/FarmCardUserFees.tsx:28
 msgid "{currencyCode} User Transaction Fees"
 msgstr "{currencyCode} ユーザー取引手数料"
 
-#: src/components/core/components/Amount/Amount.tsx:80
+#: src/components/core/components/Amount/Amount.tsx:82
 msgid "{mojo, plural, one {mojo} other {mojos}}"
 msgstr ""

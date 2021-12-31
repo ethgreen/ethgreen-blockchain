@@ -19,8 +19,8 @@ msgstr ""
 "X-Crowdin-File-ID: 72\n"
 
 #: src/components/farm/FarmLatestBlockChallenges.tsx:39
-msgid "*Want to explore ethgreen’s blocks further? Check out <0>ethgreen Explorer</0> built by an open source developer."
-msgstr "*Wil jy dalk die ethgreen blokke verder wil ondersoek? Gaan kyk na <0>ethgreen Explorer<0>, gebou deur a 'n open source programmeerder."
+msgid "*Want to explore Ethgreen’s blocks further? Check out <0>Ethgreen Explorer</0> built by an open source developer."
+msgstr "*Wil jy dalk die Ethgreen blokke verder wil ondersoek? Gaan kyk na <0>Ethgreen Explorer<0>, gebou deur a 'n open source programmeerder."
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:94
 #~ msgid "0 automatically chooses bucket count"
@@ -36,8 +36,8 @@ msgstr "'n Stroper (Harvester) is 'n robot wat werk op dieselfde masjien wat lan
 
 #: src/electron/main.tsx:365
 #: src/electron/main.tsx:443
-msgid "About ETHGreen Blockchain"
-msgstr "Inligting oor ETHGreen Blockchain"
+msgid "About Ethgreen Blockchain"
+msgstr "Inligting oor Ethgreen Blockchain"
 
 #: src/components/trading/ViewOffer.jsx:85
 msgid "Accept"
@@ -187,8 +187,8 @@ msgid "Block VDF Iterations"
 msgstr "Block VDF Iterasies"
 
 #: src/components/block/Block.jsx:311
-msgid "Block at height {0} in the ETHGreen Blockchain"
-msgstr "Blok is op hoogte {0} in die ETHGreen Blockchain"
+msgid "Block at height {0} in the Ethgreen blockchain"
+msgstr "Blok is op hoogte {0} in die Ethgreen blockchain"
 
 #: src/components/fullNode/FullNode.jsx:331
 #~ msgid "Block hash"
@@ -264,19 +264,19 @@ msgid "Challenge Hash"
 msgstr ""
 
 #: src/electron/main.tsx:345
-msgid "Chat on KeyBase"
+msgid "Chat on Discord"
 msgstr ""
 
 #: src/electron/main.tsx:362
-msgid "ethgreen"
-msgstr "ethgreen"
+msgid "Ethgreen"
+msgstr "Ethgreen"
 
 #: src/electron/main.tsx:312
-msgid "ETHGreen Blockchain Wiki"
-msgstr "ETHGreen Blockchain Wiki"
+msgid "Ethgreen Blockchain Wiki"
+msgstr "Ethgreen Blockchain Wiki"
 
 #: src/components/wallet/Wallets.tsx:32
-msgid "ethgreen Wallet"
+msgid "Ethgreen Wallet"
 msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:13
@@ -591,7 +591,7 @@ msgid "Edit"
 msgstr ""
 
 #: src/components/wallet/WalletImport.tsx:67
-msgid "Enter the 24 word mnemonic that you have saved in order to restore your ethgreen wallet."
+msgid "Enter the 24 word mnemonic that you have saved in order to restore your Ethgreen wallet."
 msgstr ""
 
 #: src/components/farm/FarmerStatus.tsx:30
@@ -688,7 +688,7 @@ msgid "Fee"
 msgstr ""
 
 #: src/components/wallet/coloured/WalletColoured.tsx:420
-#~ msgid "Fee (TXCH)"
+#~ msgid "Fee (TXETH)"
 #~ msgstr ""
 
 #: src/components/wallet/coloured/WalletColoured.tsx:420
@@ -1218,7 +1218,7 @@ msgid "Plots Passed Filter"
 msgstr ""
 
 #: src/components/plot/overview/PlotOverviewHero.tsx:23
-msgid "Plots are allocated space on your hard drive used to farm and earn ethgreen. <0>Learn more</0>"
+msgid "Plots are allocated space on your hard drive used to farm and earn Ethgreen. <0>Learn more</0>"
 msgstr ""
 
 #: src/components/plot/queue/PlotQueueIndicator.tsx:8
@@ -1584,8 +1584,8 @@ msgstr ""
 #~ msgstr "Sub Block Height"
 
 #: src/components/block/Block.jsx:338
-#~ msgid "Sub Block at height {0} in the ETHGreen Blockchain"
-#~ msgstr "Sub Block at height {0} in the ETHGreen Blockchain"
+#~ msgid "Sub Block at height {0} in the Ethgreen blockchain"
+#~ msgstr "Sub Block at height {0} in the Ethgreen blockchain"
 
 #: src/components/wallet/rateLimited/WalletRateLimited.jsx:357
 msgid "Submit"
@@ -1606,23 +1606,23 @@ msgid "Syncing {progress}/{tip}"
 msgstr ""
 
 #: src/components/farm/card/FarmCardBlockRewards.tsx:15
-#~ msgid "TXCH Block Rewards"
+#~ msgid "TXETH Block Rewards"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardCoinbaseRewards.tsx:12
-#~ msgid "TXCH Farming Rewards"
+#~ msgid "TXETH Farming Rewards"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardFeesReward.tsx:12
-#~ msgid "TXCH Fees Collected"
+#~ msgid "TXETH Fees Collected"
 #~ msgstr ""
 
 #: src/components/farm/card/FarmCardUserFees.tsx:12
-#~ msgid "TXCH User Fees"
-#~ msgstr "TXCH User Fees"
+#~ msgid "TXETH User Fees"
+#~ msgstr "TXETH User Fees"
 
 #: src/components/farm/card/FarmCardUserFees.tsx:15
-#~ msgid "TXCH User Transaction Fees"
+#~ msgid "TXETH User Transaction Fees"
 #~ msgstr ""
 
 #: src/components/plot/add/PlotAddChooseSize.tsx:18
@@ -1685,7 +1685,7 @@ msgid "This feature is available only from the GUI."
 msgstr ""
 
 #: src/components/wallet/standard/WalletStandard.tsx:201
-msgid "This is the amount of ethgreen that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and ethgreen that you have just spent but is not yet in the blockchain."
+msgid "This is the amount of Ethgreen that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and Ethgreen that you have just spent but is not yet in the blockchain."
 msgstr ""
 
 #: src/components/wallet/standard/WalletStandard.tsx:228
@@ -1733,7 +1733,7 @@ msgid "This trade was included on blockchain at this block height"
 msgstr ""
 
 #: src/components/app/AppTimeBombAlert.tsx:11
-msgid "This version of ethgreen is no longer compatible with the blockchain and can not safely farm."
+msgid "This version of Ethgreen is no longer compatible with the blockchain and can not safely farm."
 msgstr ""
 
 #: src/components/fullNode/FullNode.jsx:86
@@ -1758,8 +1758,8 @@ msgstr ""
 msgid "Total Balance"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalethgreenFarmed.tsx:15
-#~ msgid "Total ethgreen Farmed"
+#: src/components/farm/card/FarmCardTotalEthgreenFarmed.tsx:15
+#~ msgid "Total Ethgreen Farmed"
 #~ msgstr ""
 
 #: src/components/fullNode/FullNode.jsx:191
@@ -1922,7 +1922,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/plot/overview/PlotOverviewPlots.tsx:84
-msgid "Want to earn more ethgreen? Add more plots to your farm."
+msgid "Want to earn more Ethgreen? Add more plots to your farm."
 msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:53
@@ -1938,7 +1938,7 @@ msgid "Weight is the total added difficulty of all sub blocks up to and includin
 msgstr ""
 
 #: src/components/selectKey/SelectKey.tsx:77
-msgid "Welcome to ethgreen. Please log in with an existing key, or create a new key."
+msgid "Welcome to Ethgreen. Please log in with an existing key, or create a new key."
 msgstr ""
 
 #: src/components/wallet/WalletAdd.tsx:35
@@ -1988,8 +1988,8 @@ msgstr ""
 #~ msgstr "You have {0}% of the space on the network, so farming a block will take {expectedTimeToWin} in expectation. Actual results may take 3-4 times longer this estimate. <0>Learn about Expected Value</0>"
 
 #: src/components/app/AppTimeBomb.tsx:28
-#~ msgid "You need to upgrade the ethgreen application as this version will stop working soon!"
-#~ msgstr "You need to upgrade the ethgreen application as this version will stop working soon!"
+#~ msgid "You need to upgrade the Ethgreen application as this version will stop working soon!"
+#~ msgstr "You need to upgrade the Ethgreen application as this version will stop working soon!"
 
 #: src/components/farm/overview/FarmOverview.tsx:24
 msgid "Your Farm Overview"
@@ -2044,8 +2044,8 @@ msgstr ""
 msgid "{currencyCode} Block Rewards"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalethgreenFarmed.tsx:17
-msgid "{currencyCode} Total ethgreen Farmed"
+#: src/components/farm/card/FarmCardTotalEthgreenFarmed.tsx:17
+msgid "{currencyCode} Total Ethgreen Farmed"
 msgstr ""
 
 #: src/components/farm/card/FarmCardUserFees.tsx:17

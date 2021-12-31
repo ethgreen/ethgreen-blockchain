@@ -9,7 +9,7 @@ wallet_program_files = set(
     [
         "ethgreen/wallet/puzzles/calculate_synthetic_public_key.clvm",
         "ethgreen/wallet/puzzles/cc.clvm",
-        "ethgreen/wallet/puzzles/chialisp_deserialisation.clvm",
+        "ethgreen/wallet/puzzles/ethgreenlisp_deserialisation.clvm",
         "ethgreen/wallet/puzzles/rom_bootstrap_generator.clvm",
         "ethgreen/wallet/puzzles/generator_for_single_coin.clvm",
         "ethgreen/wallet/puzzles/genesis-by-coin-id-with-0.clvm",

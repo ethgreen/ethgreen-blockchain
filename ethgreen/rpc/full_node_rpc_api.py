@@ -45,6 +45,7 @@ class FullNodeRpcApi:
             "/get_coin_records_by_puzzle_hash": self.get_coin_records_by_puzzle_hash,
             "/get_coin_records_by_puzzle_hashes": self.get_coin_records_by_puzzle_hashes,
             "/get_coin_record_by_name": self.get_coin_record_by_name,
+            "/get_coin_records_by_names": self.get_coin_records_by_names,
             "/get_coin_records_by_parent_ids": self.get_coin_records_by_parent_ids,
             "/push_tx": self.push_tx,
             "/get_puzzle_and_solution": self.get_puzzle_and_solution,
@@ -468,6 +469,28 @@ class FullNodeRpcApi:
 
         return {"coin_record": coin_record}
 
+    async def get_coin_records_by_names(self, request: Dict) -> Optional[Dict]:
+        """
+        Retrieves the coins for given coin IDs, by default returns unspent coins.
+        """
+        if "names" not in request:
+            raise ValueError("Names not in request")
+        kwargs: Dict[str, Any] = {
+            "include_spent_coins": False,
+            "names": [hexstr_to_bytes(name) for name in request["names"]],
+        }
+        if "start_height" in request:
+            kwargs["start_height"] = uint32(request["start_height"])
+        if "end_height" in request:
+            kwargs["end_height"] = uint32(request["end_height"])
+
+        if "include_spent_coins" in request:
+            kwargs["include_spent_coins"] = request["include_spent_coins"]
+
+        coin_records = await self.service.blockchain.coin_store.get_coin_records_by_names(**kwargs)
+
+        return {"coin_records": coin_records}
+
     async def get_coin_records_by_parent_ids(self, request: Dict) -> Optional[Dict]:
         """
         Retrieves the coins for given parent coin IDs, by default returns unspent coins.
@@ -549,7 +572,7 @@ class FullNodeRpcApi:
         if block is None:
             raise ValueError(f"Block {header_hash.hex()} not found")
 
-        async with self.service.blockchain.lock:
+        async with self.service._blockchain_lock_low_priority:
             if self.service.blockchain.height_to_hash(block.height) != header_hash:
                 raise ValueError(f"Block at {header_hash.hex()} is no longer in the blockchain (it's in a fork)")
             additions: List[CoinRecord] = await self.service.coin_store.get_coins_added_at_height(block.height)

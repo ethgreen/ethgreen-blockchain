@@ -1,7 +1,7 @@
 from clvm.casts import int_from_bytes
 from clvm_tools import binutils
 
-from ethgreen.consensus.block_rewards import calculate_base_donationwallet_reward, calculate_base_farmer_reward, calculate_pool_reward
+from ethgreen.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
 from ethgreen.types.blockchain_format.program import Program
 from ethgreen.types.condition_opcodes import ConditionOpcode
 from ethgreen.util.bech32m import decode_puzzle_hash, encode_puzzle_hash
@@ -16,11 +16,9 @@ ph2 = decode_puzzle_hash(address2)
 
 pool_amounts = int(calculate_pool_reward(uint32(0)) / 2)
 farmer_amounts = int(calculate_base_farmer_reward(uint32(0)) / 2)
-donationwallet_amounts = int(calculate_base_donationwallet_reward(uint32(0)) / 2)
 
 assert pool_amounts * 2 == calculate_pool_reward(uint32(0))
 assert farmer_amounts * 2 == calculate_base_farmer_reward(uint32(0))
-assert donationwallet_amounts * 2 == calculate_base_donationwallet_reward(uint32(0))
 
 
 def make_puzzle(amount: int) -> int:
@@ -59,7 +57,5 @@ print("Pool address: ")
 total_ethgreen += make_puzzle(pool_amounts)
 print("\nFarmer address: ")
 total_ethgreen += make_puzzle(farmer_amounts)
-print("\nFarmer address: ")
-total_ethgreen += make_puzzle(donationwallet_amounts)
 
-assert total_ethgreen == calculate_base_donationwallet_reward(uint32(0)) + calculate_base_farmer_reward(uint32(0)) + calculate_pool_reward(uint32(0))
+assert total_ethgreen == calculate_base_farmer_reward(uint32(0)) + calculate_pool_reward(uint32(0))

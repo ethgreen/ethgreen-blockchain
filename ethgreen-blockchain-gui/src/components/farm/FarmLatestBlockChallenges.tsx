@@ -62,13 +62,13 @@ export default function FarmLatestBlockChallenges() {
       />
       <Typography variant="caption">
         <Trans>
-          *Want to explore ethgreen’s blocks further? Check out{' '}
+          *Want to explore Ethgreen’s blocks further? Check out{' '}
           <Link
             color="primary"
-            href="https://alltheblocks.net/ethgreen/"
+            href="https://www.ethgreenexplorer.org/"
             target="_blank"
           >
-            ethgreen Explorer
+            Ethgreen Explorer
           </Link>{' '}
           built by an open source developer.
         </Trans>

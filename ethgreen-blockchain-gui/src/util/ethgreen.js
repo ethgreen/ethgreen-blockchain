@@ -12,7 +12,7 @@ const convert = (amount, from, to) => {
   return Number.parseFloat(amountInFromUnit.div(units.getUnit(to)));
 };
 
-class ethgreen {
+class Ethgreen {
   constructor(value, unit) {
     this._value = value;
     this._unit = unit;
@@ -73,7 +73,7 @@ class ethgreen {
   }
 }
 
-export const ethgreen_formatter = (value, unit) => new ethgreen(value, unit);
+export const ethgreen_formatter = (value, unit) => new Ethgreen(value, unit);
 
 ethgreen_formatter.convert = convert;
 ethgreen_formatter.setDisplay = units.setDisplay;

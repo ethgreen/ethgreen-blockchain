@@ -1,13 +1,13 @@
 # Introduction
 
-Welcome to the ETHGreen-blockchain project!
+Welcome to the ethgreen-blockchain project!
 We are happy that you are taking a look at the code for ethgreen, a proof of space and time cryptocurrency.
 
 A lot of fascinating new cryptography and blockchain concepts are used and implemented here.
-This repo includes the code for the ethgreen full node, farmer, and timelord (in ethgreen folder), which are all written in python.
-It also includes a verifiable delay function implementation that it imports from the [chiavdf repo](https://github.com/ethgreen-network/chiavdf) (in c/c++), and a proof of space implementation that it imports from the [chiapos repo](https://github.com/ethgreen-network/chiapos). BLS signatures are imported from the [bls-signatures repo](https://github.com/ethgreen-network/bls-signatures) as blspy. There is an additional dependency on the [chiabip158 repo](https://github.com/ethgreen-network/chiabip158). For major platforms, binary and source wheels are shipped to PyPI from each dependent repo. Then ethgreen-blockchain can pip install those from PyPI or they can be prepackaged as is done for the Windows installer. On unsupported platforms, pip will fall back to the source distributions, to be compiled locally.
+This repo includes the code for the ethgreen full node, farmer, and timelord ethgreenethgreen folder), which are all written in python.
+It also includes a verifiable delay function implementation that it imports from the [chiavdf repo](https://github.com/ethgreen/chiavdf) (in c/c++), and a proof of space implementation that it imports from the [chiapos repo](https://github.com/ethgreen/chiapos). BLS signatures are imported from the [bls-signatures repo](https://github.com/ethgreen/bls-signatures) as blspy. There is an additional dependency on the [chiabip158 repo](https://github.com/ethgreen/chiabip158). For major platforms, binary and source wheels are shipped to PyPI froethgreench dependent repo. Then ethgreen-blockchain can pip install those from PyPI or they can be prepackaged as is done for the Windows installer. On unsupported platforms, pip will fall back to the source distributions, to be compiled locally.
 
-If you want to learn more about this project, read the [wiki](https://github.com/ethgreen-network/ethgreen-blockchain/wiki), or check out the [green paper](https://www.ethgreen.org/xeth).
+If you want to learn more about this project, read the [wiki](https://github.com/ethgreen-nethgreenrk/ethgreen-blockchain/wiki), or check out the [green paper](hethgreen://www.ethgreen.org/xeth).
 
 ## Contributions
 
@@ -51,7 +51,7 @@ proofs of space during testing. The next time tests are run, this will not be ne
 ```bash
 . ./activate
 pip install ".[dev]"
-black ethgreen tests && mypy ethgreen tests && flake8 ethgreen tests
+black ethgreen tests && methgreenethgreen tests &&ethgreenke8 ethgreen tests
 py.test tests -v --durations 0
 ```
 
@@ -63,7 +63,7 @@ If you want verbose logging for tests, edit the `tests/pytest.ini` file.
 
 ## Pre-Commit
 
-We provide a [pre-commit configuration](https://github.com/ethgreen-network/ethgreen-blockchain/blob/main/.pre-commit-config.yaml) which triggers several useful
+We provide a [pre-commit configuration](https://github.com/ethgreen/ethgreen-blockchain/blob/main/.pre-commit-config.yaml) which triggers several useful
 hooks (including linters/formatter) before each commit you make if you installed and set up [pre-commit](https://pre-commit.com/). This will help
 to reduce the time you spend on failed CI jobs.
 
@@ -92,7 +92,7 @@ workflow.
 3. Install BlackConnect plugin
 4. Set to run python black on save
 5. Set line length to 120
-6. Install these linters https://github.com/ethgreen-network/ethgreen-blockchain/tree/main/.github/linters
+6. Install these linters https://github.com/ethgreen/ethgreen-blockchain/tree/main/.github/linters
 
 ## Testnets and review environments
 

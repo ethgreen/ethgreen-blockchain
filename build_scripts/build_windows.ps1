@@ -42,8 +42,22 @@ if (-not (Test-Path env:ETHGREEN_INSTALLER_VERSION)) {
   $env:ETHGREEN_INSTALLER_VERSION = '0.0.0'
   Write-Output "WARNING: No environment variable ETHGREEN_INSTALLER_VERSION set. Using 0.0.0"
   }
-Write-Output "ethgreen Version is: $env:ETHGREEN_INSTALLER_VERSION"
+Write-Output "Ethgreen Version is: $env:ETHGREEN_INSTALLER_VERSION"
 Write-Output "   ---"
+
+Write-Output "Checking if madmax exists"
+Write-Output "   ---"
+if (Test-Path -Path .\madmax\) {
+    Write-Output "   madmax exists, moving to expected directory"
+    mv .\madmax\ .\venv\lib\site-packages\
+}
+
+Write-Output "Checking if bladebit exists"
+Write-Output "   ---"
+if (Test-Path -Path .\bladebit\) {
+    Write-Output "   bladebit exists, moving to expected directory"
+    mv .\bladebit\ .\venv\lib\site-packages\
+}
 
 Write-Output "   ---"
 Write-Output "Build ethgreen-blockchain wheels"
@@ -83,7 +97,7 @@ Write-Output "   ---"
 $Env:NODE_OPTIONS = "--max-old-space-size=3000"
 npm install --save-dev electron-winstaller
 npm install -g electron-packager
-npm install
+npm install --force
 npm audit fix
 
 git status
@@ -103,13 +117,22 @@ editbin.exe /STACK:8000000 daemon\ethgreen.exe
 Write-Output "   ---"
 
 $packageVersion = "$env:ETHGREEN_INSTALLER_VERSION"
-$packageName = "ETHGreen-$packageVersion"
+$packageName = "Ethgreen-$packageVersion"
 
 Write-Output "packageName is $packageName"
 
 Write-Output "   ---"
+Write-Output "fix version in package.json"
+choco install jq
+cp package.json package.json.orig
+jq --arg VER "$env:ETHGREEN_INSTALLER_VERSION" '.version=$VER' package.json > temp.json
+rm package.json
+mv temp.json package.json
+Write-Output "   ---"
+
+Write-Output "   ---"
 Write-Output "electron-packager"
-electron-packager . ETHGreen --asar.unpack="**\daemon\**" --overwrite --icon=.\src\assets\img\ethgreen.ico --app-version=$packageVersion
+electron-packager . Ethgreen --asar.unpack="**\daemon\**" --overwrite --icon=.\src\assets\img\ethgreen.ico --app-version=$packageVersion
 Write-Output "   ---"
 
 Write-Output "   ---"
@@ -123,8 +146,8 @@ If ($env:HAS_SECRET) {
    Write-Output "   ---"
    Write-Output "Add timestamp and verify signature"
    Write-Output "   ---"
-   signtool.exe timestamp /v /t http://timestamp.comodoca.com/ .\release-builds\windows-installer\ETHGreenSetup-$packageVersion.exe
-   signtool.exe verify /v /pa .\release-builds\windows-installer\ETHGreenSetup-$packageVersion.exe
+   signtool.exe timestamp /v /t http://timestamp.comodoca.com/ .\release-builds\windows-installer\EthgreenSetup-$packageVersion.exe
+   signtool.exe verify /v /pa .\release-builds\windows-installer\EthgreenSetup-$packageVersion.exe
    }   Else    {
    Write-Output "Skipping timestamp and verify signatures - no authorization to install certificates"
 }

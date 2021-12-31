@@ -16,7 +16,7 @@ except ImportError:
 
 from ethgreen.rpc.rpc_server import start_rpc_server
 from ethgreen.server.outbound_message import NodeType
-from ethgreen.server.server import ethgreenServer
+from ethgreen.server.server import EthgreenServer
 from ethgreen.server.upnp import UPnP
 from ethgreen.types.peer_info import PeerInfo
 from ethgreen.util.ethgreen_logging import initialize_logging
@@ -80,7 +80,7 @@ class Service:
         inbound_rlp = self.config.get("inbound_rate_limit_percent")
         outbound_rlp = self.config.get("outbound_rate_limit_percent")
         assert inbound_rlp and outbound_rlp
-        self._server = ethgreenServer(
+        self._server = EthgreenServer(
             advertised_port,
             node,
             peer_api,
@@ -226,7 +226,7 @@ class Service:
 
         self._log.info("Waiting for socket to be closed (if opened)")
 
-        self._log.info("Waiting for ethgreenServer to be closed")
+        self._log.info("Waiting for EthgreenServer to be closed")
         await self._server.await_closed()
 
         if self._rpc_close_task:

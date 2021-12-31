@@ -16,9 +16,9 @@ from ethgreen.util.ints import uint32, uint64
 
 class FullNodeRpcClient(RpcClient):
     """
-    Client to ethgreen RPC, connects to a local full node. Uses HTTP/JSON, and converts back from
+    Client to Ethgreen RPC, connects to a local full node. Uses HTTP/JSON, and converts back from
     JSON into native python objects before returning. All api calls use POST requests.
-    Note that this is not the same as the peer protocol, or wallet protocol (which run ethgreen's
+    Note that this is not the same as the peer protocol, or wallet protocol (which run Ethgreen's
     protocol on top of TCP), it's a separate protocol on top of HTTP thats provides easy access
     to the full node.
     """
@@ -81,6 +81,24 @@ class FullNodeRpcClient(RpcClient):
         except Exception:
             return None
         return CoinRecord.from_json_dict(response["coin_record"])
+
+    async def get_coin_records_by_names(
+        self,
+        names: List[bytes32],
+        include_spent_coins: bool = True,
+        start_height: Optional[int] = None,
+        end_height: Optional[int] = None,
+    ) -> List:
+        names_hex = [name.hex() for name in names]
+        d = {"names": names_hex, "include_spent_coins": include_spent_coins}
+        if start_height is not None:
+            d["start_height"] = start_height
+        if end_height is not None:
+            d["end_height"] = end_height
+        return [
+            CoinRecord.from_json_dict(coin)
+            for coin in (await self.fetch("get_coin_records_by_names", d))["coin_records"]
+        ]
 
     async def get_coin_records_by_puzzle_hash(
         self,

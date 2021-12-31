@@ -18,9 +18,9 @@ fi
 if [ "$(uname -m)" = "armv7l" ]; then
   echo ""
 	echo "WARNING:"
-	echo "The ethgreen Blockchain requires a 64 bit OS and this is 32 bit armv7l"
+	echo "The Ethgreen Blockchain requires a 64 bit OS and this is 32 bit armv7l"
 	echo "For more information, see"
-	echo "https://github.com/ethgreen-network/ethgreen-blockchain/wiki/Raspberry-Pi"
+	echo "https://github.com/ethgreen/ethgreen-blockchain/wiki/Raspberry-Pi"
 	echo "Exiting."
 	exit 1
 fi
@@ -82,7 +82,7 @@ fi
 find_python() {
 	set +e
 	unset BEST_VERSION
-	for V in 37 3.7 38 3.8 39 3.9 3; do
+	for V in 39 3.9 38 3.8 37 3.7 3; do
 		if which python$V >/dev/null; then
 			if [ "$BEST_VERSION" = "" ]; then
 				BEST_VERSION=$V
@@ -116,16 +116,16 @@ python -m pip install --upgrade pip
 python -m pip install wheel
 #if [ "$INSTALL_PYTHON_VERSION" = "3.8" ]; then
 # This remains in case there is a diversion of binary wheels
-python -m pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.1
+python -m pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.2.2
 python -m pip install -e . --extra-index-url https://pypi.chia.net/simple/
 
 echo ""
-echo "ethgreen blockchain install.sh complete."
-echo "For assistance join us on Discord in the #testnet chat channel:"
-echo "https://discord.gg/qEd6zrZPsX"
+echo "Ethgreen blockchain install.sh complete."
+echo "For assistance join us on Discord in the #support chat channel:"
+echo "https://discord.gg/uWnhFbMJTn"
 echo ""
 echo "Try the Quick Start Guide to running ethgreen-blockchain:"
-echo "https://github.com/ethgreen-network/ethgreen-blockchain/wiki/Quick-Start-Guide"
+echo "https://github.com/ethgreen/ethgreen-blockchain/wiki/Quick-Start-Guide"
 echo ""
 echo "To install the GUI type 'sh install-gui.sh' after '. ./activate'."
 echo ""

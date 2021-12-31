@@ -16,7 +16,7 @@ from ethgreen.protocols.protocol_message_types import ProtocolMessageTypes
 from ethgreen.server.address_manager import AddressManager, ExtendedPeerInfo
 from ethgreen.server.address_manager_store import AddressManagerStore
 from ethgreen.server.outbound_message import NodeType, make_msg
-from ethgreen.server.server import ethgreenServer
+from ethgreen.server.server import EthgreenServer
 from ethgreen.types.peer_info import PeerInfo, TimestampedPeerInfo
 from ethgreen.util.hash import std_hash
 from ethgreen.util.ints import uint64
@@ -37,7 +37,7 @@ class FullNodeDiscovery:
 
     def __init__(
         self,
-        server: ethgreenServer,
+        server: EthgreenServer,
         root_path: Path,
         target_outbound_count: int,
         peer_db_path: str,
@@ -48,7 +48,7 @@ class FullNodeDiscovery:
         default_port: Optional[int],
         log,
     ):
-        self.server: ethgreenServer = server
+        self.server: EthgreenServer = server
         self.message_queue: asyncio.Queue = asyncio.Queue()
         self.is_closed = False
         self.target_outbound_count = target_outbound_count
@@ -92,6 +92,8 @@ class FullNodeDiscovery:
     async def initialize_address_manager(self) -> None:
         mkdir(self.peer_db_path.parent)
         self.connection = await aiosqlite.connect(self.peer_db_path)
+        await self.connection.execute("pragma journal_mode=wal")
+        pass  # await self.connection.execute("pragma synchronous=OFF")  # Prevent DB corruption by avoiding ill-advised synchronous optimization.
         self.address_manager_store = await AddressManagerStore.create(self.connection)
         if not await self.address_manager_store.is_empty():
             self.address_manager = await self.address_manager_store.deserialize()
@@ -127,7 +129,7 @@ class FullNodeDiscovery:
     def add_message(self, message, data):
         self.message_queue.put_nowait((message, data))
 
-    async def on_connect(self, peer: ws.WSethgreenConnection):
+    async def on_connect(self, peer: ws.WSEthgreenConnection):
         if (
             peer.is_outbound is False
             and peer.peer_server_port is not None
@@ -154,7 +156,7 @@ class FullNodeDiscovery:
             await peer.send_message(msg)
 
     # Updates timestamps each time we receive a message for outbound connections.
-    async def update_peer_timestamp_on_message(self, peer: ws.WSethgreenConnection):
+    async def update_peer_timestamp_on_message(self, peer: ws.WSEthgreenConnection):
         if (
             peer.is_outbound
             and peer.peer_server_port is not None
@@ -192,7 +194,7 @@ class FullNodeDiscovery:
         if self.introducer_info is None:
             return None
 
-        async def on_connect(peer: ws.WSethgreenConnection):
+        async def on_connect(peer: ws.WSEthgreenConnection):
             msg = make_msg(ProtocolMessageTypes.request_peers_introducer, introducer_protocol.RequestPeersIntroducer())
             await peer.send_message(msg)
 
@@ -208,20 +210,20 @@ class FullNodeDiscovery:
             if self.resolver is None:
                 self.log.warn("Skipping DNS query: asyncresolver not initialized.")
                 return
-            peers: List[TimestampedPeerInfo] = []
-            result = await self.resolver.resolve(qname=dns_address, lifetime=30)
-            for ip in result:
-                peers.append(
-                    TimestampedPeerInfo(
-                        ip.to_text(),
-                        self.default_port,
-                        0,
+            for rdtype in ["A", "AAAA"]:
+                peers: List[TimestampedPeerInfo] = []
+                result = await self.resolver.resolve(qname=dns_address, rdtype=rdtype, lifetime=30)
+                for ip in result:
+                    peers.append(
+                        TimestampedPeerInfo(
+                            ip.to_text(),
+                            self.default_port,
+                            0,
+                        )
                     )
-                )
-            self.log.info(f"Received {len(peers)} peers from DNS seeder.")
-            if len(peers) == 0:
-                return
-            await self._respond_peers_common(full_node_protocol.RespondPeers(peers), None, False)
+                self.log.info(f"Received {len(peers)} peers from DNS seeder, using rdtype = {rdtype}.")
+                if len(peers) > 0:
+                    await self._respond_peers_common(full_node_protocol.RespondPeers(peers), None, False)
         except Exception as e:
             self.log.warn(f"querying DNS introducer failed: {e}")
 

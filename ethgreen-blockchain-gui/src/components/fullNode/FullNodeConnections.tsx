@@ -25,7 +25,7 @@ const StyledIconButton = styled(IconButton)`
 
 const cols = [
   {
-    minWidth: '100px',
+    minWidth: '200px',
     field(row: Connection) {
       return (
         <Tooltip title={row.node_id}>
@@ -39,7 +39,7 @@ const cols = [
     field: 'peer_host',
     title: <Trans>IP address</Trans>,
   },
-  {
+    {
     field(row: Connection) {
       const Geo = window.geoip.lookup(row.peer_host.replace(/\[/,"").replace(/]/g,""))||{country:"",region:"",city:""}
 
@@ -56,14 +56,10 @@ const cols = [
           return emoji.get("earth_americas");
         });
     }, title: <Trans>Region</Trans>,
-  }, 
+  },
   {
     field(row: Connection) {
-      return (
-        <Tooltip title={`${row.peer_port}/${row.peer_server_port}`}>
-          <span>{row.peer_server_port}</span>
-        </Tooltip>
-      );
+      return `${row.peer_port}/${row.peer_server_port}`;
     },
     title: <Trans>Port</Trans>,
   },

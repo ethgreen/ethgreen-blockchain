@@ -5,7 +5,7 @@ import {
   Amount,
   Fee,
   Form,
-  TextField as ETHGreenTextField,
+  TextField as EthgreenTextField,
   AlertDialog,
   CopyToClipboard,
   Flex,
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 100,
   },
   resultSuccess: {
-    color: '#FFD700',
+    color: '#3AAC59',
   },
   resultFailure: {
     color: 'red',
@@ -167,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     width: 150,
-    height: 30,
+    height: 50,
   },
   copyButton: {
     marginTop: theme.spacing(0),
@@ -285,9 +285,9 @@ function BalanceCard(props: BalanceCardProps) {
         balance={balance_spendable}
         tooltip={
           <Trans>
-            This is the amount of ethgreen that you can currently use to make
+            This is the amount of Ethgreen that you can currently use to make
             transactions. It does not include pending farming rewards, pending
-            incoming transactions, and ethgreen that you have just spent but is not
+            incoming transactions, and Ethgreen that you have just spent but is not
             yet in the blockchain.
           </Trans>
         }
@@ -366,6 +366,7 @@ function SendCard(props: SendCardProps) {
   const { wallet_id } = props;
   const classes = useStyles();
   const dispatch = useDispatch();
+  const openDialog = useOpenDialog();
 
   const methods = useForm<SendTransactionData>({
     shouldUnregister: false,
@@ -414,51 +415,43 @@ function SendCard(props: SendCardProps) {
     }
 
     if (syncing) {
-      dispatch(
-        openDialog(
-          <AlertDialog>
-            <Trans>Please finish syncing before making a transaction</Trans>
-          </AlertDialog>,
-        ),
+      openDialog(
+        <AlertDialog>
+          <Trans>Please finish syncing before making a transaction</Trans>
+        </AlertDialog>,
       );
       return;
     }
 
     const amount = data.amount.trim();
     if (!isNumeric(amount)) {
-      dispatch(
-        openDialog(
-          <AlertDialog>
-            <Trans>Please enter a valid numeric amount</Trans>
-          </AlertDialog>,
-        ),
+      openDialog(
+        <AlertDialog>
+          <Trans>Please enter a valid numeric amount</Trans>
+        </AlertDialog>,
       );
       return;
     }
 
     const fee = data.fee.trim();
     if (!isNumeric(fee)) {
-      dispatch(
-        openDialog(
-          <AlertDialog>
-            <Trans>Please enter a valid numeric fee</Trans>
-          </AlertDialog>,
-        ),
+      openDialog(
+        <AlertDialog>
+          <Trans>Please enter a valid numeric fee</Trans>
+        </AlertDialog>,
       );
       return;
     }
 
     let address = data.address;
     if (address.includes('colour')) {
-      dispatch(
-        openDialog(
-          <AlertDialog>
-            <Trans>
-              Error: Cannot send ethgreen to coloured address. Please enter a ethgreen
-              address.
-            </Trans>
-          </AlertDialog>,
-        ),
+      openDialog(
+        <AlertDialog>
+          <Trans>
+            Error: Cannot send ethgreen to coloured address. Please enter a ethgreen
+            address.
+          </Trans>
+        </AlertDialog>,
       );
       return;
     }
@@ -494,13 +487,13 @@ function SendCard(props: SendCardProps) {
       <Form methods={methods} onSubmit={handleSubmit}>
         <Grid spacing={2} container>
           <Grid xs={12} item>
-            <ETHGreenTextField
+            <EthgreenTextField
               name="address"
               variant="filled"
               color="secondary"
               fullWidth
               disabled={sending_transaction}
-              label={<Trans>Address/Puzzle hash</Trans>}
+              label={<Trans>Address / Puzzle hash</Trans>}
             />
           </Grid>
           <Grid xs={12} md={6} item>
@@ -615,10 +608,11 @@ function AddressCard(props: AddressCardProps) {
 
 type StandardWalletProps = {
   wallet_id: number;
+  showTitle?: boolean;
 };
 
 export default function StandardWallet(props: StandardWalletProps) {
-  const { wallet_id } = props;
+  const { wallet_id, showTitle } = props;
   const dispatch = useDispatch();
   const openDialog = useOpenDialog();
 
@@ -643,44 +637,47 @@ export default function StandardWallet(props: StandardWalletProps) {
     <Flex flexDirection="column" gap={1}>
       <Flex gap={1} alignItems="center">
         <Flex flexGrow={1}>
-          <Typography variant="h5" gutterBottom>
-            <Trans>ETHGreen Wallet</Trans>
-          </Typography>
-        </Flex>
-        <More>
-          {({ onClose }) => (
-            <Box>
-              <MenuItem
-                onClick={() => {
-                  onClose();
-                  handleDeleteUnconfirmedTransactions();
-                }}
-              >
-                <ListItemIcon>
-                  <DeleteIcon />
-                </ListItemIcon>
-                <Typography variant="inherit" noWrap>
-                  <Trans>Delete Unconfirmed Transactions</Trans>
-                </Typography>
-              </MenuItem>
-            </Box>
+          {showTitle && (
+            <Typography variant="h5" gutterBottom>
+              <Trans>Ethgreen Wallet</Trans>
+            </Typography>
           )}
-        </More>
+        </Flex>
+        <Flex gap={1} alignItems="center">
+          <Flex alignItems="center">
+            <Typography variant="body1" color="textSecondary">
+              <Trans>Wallet Status:</Trans>
+            </Typography>
+            &nbsp;
+            <WalletStatus height />
+          </Flex>
+          <More>
+            {({ onClose }) => (
+              <Box>
+                <MenuItem
+                  onClick={() => {
+                    onClose();
+                    handleDeleteUnconfirmedTransactions();
+                  }}
+                >
+                  <ListItemIcon>
+                    <DeleteIcon />
+                  </ListItemIcon>
+                  <Typography variant="inherit" noWrap>
+                    <Trans>Delete Unconfirmed Transactions</Trans>
+                  </Typography>
+                </MenuItem>
+              </Box>
+            )}
+          </More>
+        </Flex>
       </Flex>
 
-      <Flex flexDirection="column" gap={2}>
-        <Flex gap={1} justifyContent="flex-end">
-          <Typography variant="body1" color="textSecondary">
-            <Trans>Wallet Status:</Trans>
-          </Typography>
-          <WalletStatus height />
-        </Flex>
-        <Flex flexDirection="column" gap={3}>
-          <WalletCards wallet_id={wallet_id} />
-          <SendCard wallet_id={wallet_id} />
-          <AddressCard wallet_id={wallet_id} />
-          <WalletHistory walletId={wallet_id} />
-        </Flex>
+      <Flex flexDirection="column" gap={3}>
+        <WalletCards wallet_id={wallet_id} />
+        <SendCard wallet_id={wallet_id} />
+        <AddressCard wallet_id={wallet_id} />
+        <WalletHistory walletId={wallet_id} />
       </Flex>
     </Flex>
   );

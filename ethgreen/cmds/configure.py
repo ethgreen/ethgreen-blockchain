@@ -18,6 +18,7 @@ def configure(
     set_outbound_peer_count: str,
     set_peer_count: str,
     testnet: str,
+    peer_connect_timeout: str,
 ):
     config: Dict = load_config(DEFAULT_ROOT_PATH, "config.yaml")
     change_made = False
@@ -73,26 +74,27 @@ def configure(
             change_made = True
         else:
             print(f"Logging level not updated. Use one of: {levels}")
-    if enable_upnp is not None:
+    if enable_upnp:
         config["full_node"]["enable_upnp"] = str2bool(enable_upnp)
         if str2bool(enable_upnp):
             print("uPnP enabled")
         else:
             print("uPnP disabled")
         change_made = True
-    if set_outbound_peer_count is not None:
+    if set_outbound_peer_count:
         config["full_node"]["target_outbound_peer_count"] = int(set_outbound_peer_count)
         print("Target outbound peer count updated")
         change_made = True
-    if set_peer_count is not None:
+    if set_peer_count:
         config["full_node"]["target_peer_count"] = int(set_peer_count)
         print("Target peer count updated")
         change_made = True
-    if testnet is not None:
+    if testnet:
         if testnet == "true" or testnet == "t":
             print("Setting Testnet")
-            testnet_port = "6262"
+            testnet_port = "56888"
             testnet_introducer = "beta1_introducer.eth-green.com"
+            testnet_dns_introducer = "dns-introducer.eth-green.com"
             testnet = "testnet7"
             config["full_node"]["port"] = int(testnet_port)
             config["full_node"]["introducer_peer"]["port"] = int(testnet_port)
@@ -102,6 +104,7 @@ def configure(
             config["wallet"]["introducer_peer"]["port"] = int(testnet_port)
             config["introducer"]["port"] = int(testnet_port)
             config["full_node"]["introducer_peer"]["host"] = testnet_introducer
+            config["full_node"]["dns_servers"] = [testnet_dns_introducer]
             config["selected_network"] = testnet
             config["harvester"]["selected_network"] = testnet
             config["pool"]["selected_network"] = testnet
@@ -118,6 +121,7 @@ def configure(
             print("Setting Mainnet")
             mainnet_port = "6262"
             mainnet_introducer = "introducer.eth-green.com"
+            mainnet_dns_introducer = "dns-introducer.eth-green.com"
             net = "mainnet"
             config["full_node"]["port"] = int(mainnet_port)
             config["full_node"]["introducer_peer"]["port"] = int(mainnet_port)
@@ -127,6 +131,7 @@ def configure(
             config["wallet"]["introducer_peer"]["port"] = int(mainnet_port)
             config["introducer"]["port"] = int(mainnet_port)
             config["full_node"]["introducer_peer"]["host"] = mainnet_introducer
+            config["full_node"]["dns_servers"] = [mainnet_dns_introducer]
             config["selected_network"] = net
             config["harvester"]["selected_network"] = net
             config["pool"]["selected_network"] = net
@@ -140,6 +145,10 @@ def configure(
             change_made = True
         else:
             print("Please choose True or False")
+
+    if peer_connect_timeout:
+        config["full_node"]["peer_connect_timeout"] = int(peer_connect_timeout)
+        change_made = True
 
     if change_made:
         print("Restart any running ethgreen services for changes to take effect")
@@ -186,6 +195,7 @@ def configure(
     type=str,
 )
 @click.option("--set-peer-count", help="Update the target peer count (default 80)", type=str)
+@click.option("--set-peer-connect-timeout", help="Update the peer connect timeout (default 30)", type=str)
 @click.pass_context
 def configure_cmd(
     ctx,
@@ -198,6 +208,7 @@ def configure_cmd(
     set_outbound_peer_count,
     set_peer_count,
     testnet,
+    set_peer_connect_timeout,
 ):
     configure(
         ctx.obj["root_path"],
@@ -210,4 +221,5 @@ def configure_cmd(
         set_outbound_peer_count,
         set_peer_count,
         testnet,
+        set_peer_connect_timeout,
     )

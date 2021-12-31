@@ -70,7 +70,7 @@ const Spacer = styled.div`
   margin-bottom: 1rem;
 `;
 
-const url = 'https://eth-green.com';
+const url = 'https://t.co/0lpxtJPKz4';
 
 type Props = {
   version: string;
@@ -114,7 +114,7 @@ export default function About(props: Props) {
         </StyledLink>
         <StyledSubTitle>{description}</StyledSubTitle>
         <Spacer />
-        <div className="copyright">Copyright (c) 2021 ethgreen-network</div>
+        <div className="copyright">Copyright (c) 2021 Chia Network, ETHgreen Network</div>
         <Spacer />
         <VersionsTable>
           {versions?.electron && (
@@ -144,7 +144,7 @@ export default function About(props: Props) {
         </VersionsTable>
 
         <BugReport
-          href="https://github.com/ethgreen-network/ethgreen-blockchain/issues"
+          href="https://github.com/ethgreen/ethgreen-blockchain/issues"
           target="_blank"
         >
           Report an issue

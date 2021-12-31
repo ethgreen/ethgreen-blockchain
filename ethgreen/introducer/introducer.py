@@ -3,7 +3,7 @@ import logging
 import time
 from typing import Optional
 
-from ethgreen.server.server import ethgreenServer
+from ethgreen.server.server import EthgreenServer
 from ethgreen.server.introducer_peers import VettedPeer
 from ethgreen.util.ints import uint64
 
@@ -13,7 +13,7 @@ class Introducer:
         self.max_peers_to_send = max_peers_to_send
         self.recent_peer_threshold = recent_peer_threshold
         self._shut_down = False
-        self.server: Optional[ethgreenServer] = None
+        self.server: Optional[EthgreenServer] = None
         self.log = logging.getLogger(__name__)
 
     async def _start(self):
@@ -27,7 +27,7 @@ class Introducer:
         pass
         # await self._vetting_task
 
-    def set_server(self, server: ethgreenServer):
+    def set_server(self, server: EthgreenServer):
         self.server = server
 
     async def _vetting_loop(self):

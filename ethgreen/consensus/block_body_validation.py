@@ -2,7 +2,6 @@ import collections
 import logging
 from typing import Dict, List, Optional, Set, Tuple, Union, Callable
 
-from blspy import G1Element
 from chiabip158 import PyBIP158
 from clvm.casts import int_from_bytes
 
@@ -28,11 +27,7 @@ from ethgreen.types.generator_types import BlockGenerator
 from ethgreen.types.name_puzzle_condition import NPC
 from ethgreen.types.unfinished_block import UnfinishedBlock
 from ethgreen.util import cached_bls
-from ethgreen.util.condition_tools import (
-    pkm_pairs_for_conditions_dict,
-    coin_announcements_names_for_npc,
-    puzzle_announcements_names_for_npc,
-)
+from ethgreen.util.condition_tools import pkm_pairs
 from ethgreen.util.errors import Err
 from ethgreen.util.generator_tools import (
     additions_for_npc,
@@ -55,6 +50,7 @@ async def validate_block_body(
     npc_result: Optional[NPCResult],
     fork_point_with_peak: Optional[uint32],
     get_block_generator: Callable,
+    validate_signature=True,
 ) -> Tuple[Optional[Err], Optional[NPCResult]]:
     """
     This assumes the header block has been completely validated.
@@ -174,20 +170,19 @@ async def validate_block_body(
     removals: List[bytes32] = []
     coinbase_additions: List[Coin] = list(expected_reward_coins)
     additions: List[Coin] = []
-    coin_announcement_names: Set[bytes32] = set()
-    puzzle_announcement_names: Set[bytes32] = set()
     npc_list: List[NPC] = []
     removals_puzzle_dic: Dict[bytes32, bytes32] = {}
     cost: uint64 = uint64(0)
 
-    # We check in header validation that timestamp is not more that 10 minutes into the future
-
+    # In header validation we check that timestamp is not more that 10 minutes into the future
     # 6. No transactions before INITIAL_TRANSACTION_FREEZE timestamp
+    # (this test has been removed)
+
     # 7a. The generator root must be the hash of the serialized bytes of
     #     the generator for this block (or zeroes if no generator)
     if block.transactions_generator is not None:
         if std_hash(bytes(block.transactions_generator)) != block.transactions_info.generator_root:
-                return Err.INVALID_TRANSACTIONS_GENERATOR_HASH, None
+            return Err.INVALID_TRANSACTIONS_GENERATOR_HASH, None
     else:
         if block.transactions_info.generator_root != bytes([0] * 32):
             return Err.INVALID_TRANSACTIONS_GENERATOR_HASH, None
@@ -237,8 +232,6 @@ async def validate_block_body(
             removals_puzzle_dic[npc.coin_name] = npc.puzzle_hash
 
         additions = additions_for_npc(npc_list)
-        coin_announcement_names = coin_announcements_names_for_npc(npc_list)
-        puzzle_announcement_names = puzzle_announcements_names_for_npc(npc_list)
     else:
         assert npc_result is None
 
@@ -444,7 +437,7 @@ async def validate_block_body(
     # 18. Check that the fee amount + farmer reward < maximum coin amount
     if fees + calculate_base_farmer_reward(height) > constants.MAX_COIN_AMOUNT:
         return Err.COIN_AMOUNT_EXCEEDS_MAXIMUM, None
-        
+
     # 18. Check that the fee amount + farmer reward < maximum coin amount
     if fees + calculate_base_donationwallet_reward(height) > constants.MAX_COIN_AMOUNT:
         return Err.COIN_AMOUNT_EXCEEDS_MAXIMUM, None
@@ -459,27 +452,20 @@ async def validate_block_body(
             return Err.WRONG_PUZZLE_HASH, None
 
     # 21. Verify conditions
-    # create hash_key list for aggsig check
-    pairs_pks: List[G1Element] = []
-    pairs_msgs: List[bytes] = []
     for npc in npc_list:
         assert height is not None
         unspent = removal_coin_records[npc.coin_name]
         error = mempool_check_conditions_dict(
             unspent,
-            coin_announcement_names,
-            puzzle_announcement_names,
             npc.condition_dict,
             prev_transaction_block_height,
             block.foliage_transaction_block.timestamp,
         )
         if error:
             return error, None
-        for pk, m in pkm_pairs_for_conditions_dict(
-            npc.condition_dict, npc.coin_name, constants.AGG_SIG_ME_ADDITIONAL_DATA
-        ):
-            pairs_pks.append(pk)
-            pairs_msgs.append(m)
+
+    # create hash_key list for aggsig check
+    pairs_pks, pairs_msgs = pkm_pairs(npc_list, constants.AGG_SIG_ME_ADDITIONAL_DATA)
 
     # 22. Verify aggregated signature
     # TODO: move this to pre_validate_blocks_multiprocessing so we can sync faster
@@ -491,10 +477,11 @@ async def validate_block_body(
     # However, we force caching of pairings just for unfinished blocks
     # as the cache is likely to be useful when validating the corresponding
     # finished blocks later.
-    force_cache: bool = isinstance(block, UnfinishedBlock)
-    if not cached_bls.aggregate_verify(
-        pairs_pks, pairs_msgs, block.transactions_info.aggregated_signature, force_cache
-    ):
-        return Err.BAD_AGGREGATE_SIGNATURE, None
+    if validate_signature:
+        force_cache: bool = isinstance(block, UnfinishedBlock)
+        if not cached_bls.aggregate_verify(
+            pairs_pks, pairs_msgs, block.transactions_info.aggregated_signature, force_cache
+        ):
+            return Err.BAD_AGGREGATE_SIGNATURE, None
 
     return None, npc_result

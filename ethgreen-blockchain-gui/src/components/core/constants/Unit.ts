@@ -1,5 +1,5 @@
 enum Unit {
-  ethgreen = 'ethgreen',
+  ETHGREEN = 'ETHGREEN',
   MOJO = 'MOJO',
   COLOURED_COIN = 'COLOUREDCOIN',
 }

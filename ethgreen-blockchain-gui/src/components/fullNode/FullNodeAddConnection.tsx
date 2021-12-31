@@ -23,8 +23,8 @@ export default function FullNodeAddConnection(props: Props) {
   const methods = useForm<FormData>({
     shouldUnregister: false,
     defaultValues: {
-      host: 'dns-introducer.eth-green.com',
-      port: '6262',
+      host: '',
+      port: '',
     },
   });
 

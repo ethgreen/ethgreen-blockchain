@@ -5,7 +5,7 @@ const units = {
 };
 
 const aliases = {
-  ethgreen: ['ch', 'ethgreen', 'ethgreen'],
+  ethgreen: ['ch', 'ethgreen', 'Ethgreen'],
   mojo: ['mj', 'mojo'],
   colouredcoin: ['cc', 'colouredcoin'],
 };

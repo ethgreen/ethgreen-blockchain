@@ -7,7 +7,7 @@ from ethgreen.types.blockchain_format.program import Program
 from ethgreen.types.blockchain_format.sized_bytes import bytes32
 from ethgreen.types.condition_opcodes import ConditionOpcode
 from ethgreen.util.ints import uint64
-from ethgreen.wallet.chialisp import sexp
+from ethgreen.wallet.ethgreenlisp import sexp
 from ethgreen.wallet.puzzles.load_clvm import load_clvm
 
 RATE_LIMITED_MODE = 1

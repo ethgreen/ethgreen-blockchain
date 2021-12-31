@@ -21,7 +21,7 @@ if [ ! "$ETHGREEN_INSTALLER_VERSION" ]; then
 	echo "WARNING: No environment variable ETHGREEN_INSTALLER_VERSION set. Using 0.0.0."
 	ETHGREEN_INSTALLER_VERSION="0.0.0"
 fi
-echo "ethgreen Installer Version is: $ETHGREEN_INSTALLER_VERSION"
+echo "Ethgreen Installer Version is: $ETHGREEN_INSTALLER_VERSION"
 
 echo "Installing npm and electron packagers"
 npm install electron-packager -g
@@ -60,7 +60,7 @@ cp package.json package.json.orig
 jq --arg VER "$ETHGREEN_INSTALLER_VERSION" '.version=$VER' package.json > temp.json && mv temp.json package.json
 
 electron-packager . ethgreen-blockchain --asar.unpack="**/daemon/**" --platform=linux \
---icon=src/assets/img/ethgreen.icns --overwrite --app-bundle-id=net.ethgreen.blockchain \
+--icon=src/assets/img/Ethgreen.icns --overwrite --app-bundle-id=net.ethgreen.blockchain \
 --appVersion=$ETHGREEN_INSTALLER_VERSION
 LAST_EXIT_CODE=$?
 

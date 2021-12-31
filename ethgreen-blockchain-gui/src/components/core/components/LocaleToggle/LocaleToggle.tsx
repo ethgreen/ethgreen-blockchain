@@ -43,7 +43,7 @@ export default function LocaleToggle(props: Props) {
     handleClose();
 
     openExternal(
-      'https://github.com/ethgreen-network/ethgreen-blockchain-gui/tree/main/src/locales/README.md',
+      'https://github.com/ethgreen/ethgreen-blockchain-gui/tree/main/src/locales/README.md',
     );
   }
 

@@ -4,7 +4,7 @@ from ethgreen.introducer.introducer import Introducer
 from ethgreen.protocols.introducer_protocol import RequestPeersIntroducer, RespondPeersIntroducer
 from ethgreen.protocols.protocol_message_types import ProtocolMessageTypes
 from ethgreen.server.outbound_message import Message, make_msg
-from ethgreen.server.ws_connection import WSethgreenConnection
+from ethgreen.server.ws_connection import WSEthgreenConnection
 from ethgreen.types.peer_info import TimestampedPeerInfo
 from ethgreen.util.api_decorators import api_request, peer_required
 from ethgreen.util.ints import uint64
@@ -24,7 +24,7 @@ class IntroducerAPI:
     async def request_peers_introducer(
         self,
         request: RequestPeersIntroducer,
-        peer: WSethgreenConnection,
+        peer: WSEthgreenConnection,
     ) -> Optional[Message]:
         max_peers = self.introducer.max_peers_to_send
         if self.introducer.server is None or self.introducer.server.introducer_peers is None:

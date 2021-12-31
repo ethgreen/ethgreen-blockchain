@@ -34,11 +34,11 @@ export default function PlotOverviewHero() {
           <Typography variant="body1">
             <Trans>
               {
-                'Plots are allocated space on your hard drive used to farm and earn ethgreen. '
+                'Plots are allocated space on your hard drive used to farm and earn Ethgreen. '
               }
               <Link
                 target="_blank"
-                href="https://github.com/ethgreen-network/ethgreen-blockchain/wiki/Network-Architecture"
+                href="https://github.com/ethgreen/ethgreen-blockchain/wiki/Network-Architecture"
               >
                 Learn more
               </Link>

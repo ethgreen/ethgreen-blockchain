@@ -1,4 +1,5 @@
-import { app, dialog, shell, ipcMain, BrowserWindow, Menu } from 'electron';
+import { app, dialog, shell, ipcMain, BrowserWindow, Menu, session } from 'electron';
+require('@electron/remote/main').initialize()
 import path from 'path';
 import React from 'react';
 import url from 'url';
@@ -49,13 +50,9 @@ function openAbout() {
   });
   aboutWindow.loadURL(`data:text/html;charset=utf-8,${about}`);
 
-  aboutWindow.webContents.on('will-navigate', (e, url) => {
-    e.preventDefault();
-    shell.openExternal(url);
-  });
-  aboutWindow.webContents.on('new-window', (e, url) => {
-    e.preventDefault();
-    shell.openExternal(url);
+  aboutWindow.webContents.setWindowOpenHandler((details) => {
+    shell.openExternal(details.url);
+    return { action: 'deny' }
   });
 
   aboutWindow.once('closed', () => {
@@ -123,7 +120,7 @@ if (!handleSquirrelEvent()) {
     let decidedToClose = false;
     let isClosing = false;
 
-    const createWindow = () => {
+    const createWindow = async () => {
       decidedToClose = false;
       mainWindow = new BrowserWindow({
         width: 1200,
@@ -135,34 +132,36 @@ if (!handleSquirrelEvent()) {
         webPreferences: {
           preload: `${__dirname}/preload.js`,
           nodeIntegration: true,
-          enableRemoteModule: true,
+          contextIsolation: false,
+          nativeWindowOpen: true
         },
       });
 
       if (dev_config.redux_tool) {
-        BrowserWindow.addDevToolsExtension(
-          path.join(os.homedir(), dev_config.redux_tool),
-        );
+        const reduxDevToolsPath = path.join(os.homedir(), dev_config.react_tool)
+        await app.whenReady();
+        await session.defaultSession.loadExtension(reduxDevToolsPath)
       }
 
       if (dev_config.react_tool) {
-        BrowserWindow.addDevToolsExtension(
-          path.join(os.homedir(), dev_config.react_tool),
-        );
+        const reactDevToolsPath = path.join(os.homedir(), dev_config.redux_tool);
+        await app.whenReady();
+        await session.defaultSession.loadExtension(reactDevToolsPath)
       }
 
       const startUrl =
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000'
           : url.format({
-              pathname: path.join(__dirname, '/../renderer/index.html'),
-              protocol: 'file:',
-              slashes: true,
-            });
+            pathname: path.join(__dirname, '/../renderer/index.html'),
+            protocol: 'file:',
+            slashes: true,
+          });
 
       console.log('startUrl', startUrl);
 
       mainWindow.loadURL(startUrl);
+      require("@electron/remote/main").enable(mainWindow.webContents)
 
       mainWindow.once('ready-to-show', () => {
         mainWindow.show();
@@ -189,10 +188,10 @@ if (!handleSquirrelEvent()) {
           const choice = dialog.showMessageBoxSync({
             type: 'question',
             buttons: [
-              i18n._(/* i18n */ { id: 'No' }),
-              i18n._(/* i18n */ { id: 'Yes' }),
+              i18n._(/* i18n */ {id: 'No'}),
+              i18n._(/* i18n */ {id: 'Yes'}),
             ],
-            title: i18n._(/* i18n */ { id: 'Confirm' }),
+            title: i18n._(/* i18n */ {id: 'Confirm'}),
             message: i18n._(
               /* i18n */ {
                 id: 'Are you sure you want to quit? GUI Plotting and farming will stop.',
@@ -206,7 +205,7 @@ if (!handleSquirrelEvent()) {
           isClosing = false;
           decidedToClose = true;
           mainWindow.webContents.send('exit-daemon');
-          mainWindow.setBounds({ height: 500, width: 500 });
+          mainWindow.setBounds({height: 500, width: 500});
           ipcMain.on('daemon-exited', (event, args) => {
             mainWindow.close();
 
@@ -214,7 +213,17 @@ if (!handleSquirrelEvent()) {
           });
         }
       });
+      mainWindow.on('showMessageBox' , async (e, a) => {
+        e.reply(await dialog.showMessageBox(mainWindow,a))
+      })
+
+      mainWindow.on('showSaveDialog' , async (e, a) => {
+        e.reply(await dialog.showSaveDialog(a))
+      })
+
     };
+
+
 
     const createMenu = () => Menu.buildFromTemplate(getMenuTemplate());
 
@@ -223,7 +232,7 @@ if (!handleSquirrelEvent()) {
       app.applicationMenu = createMenu();
       // if the daemon isn't local we aren't going to try to start/stop it
       if (ethgreenConfig.manageDaemonLifetime()) {
-        ethgreenEnvironment.startethgreenDaemon();
+        ethgreenEnvironment.startEthgreenDaemon();
       }
     };
 
@@ -355,10 +364,10 @@ if (!handleSquirrelEvent()) {
         role: 'help',
         submenu: [
           {
-            label: i18n._(/* i18n */ { id: 'ETHGreen Blockchain Wiki' }),
+            label: i18n._(/* i18n */ { id: 'ETHgreen Blockchain Wiki' }),
             click: () => {
               openExternal(
-                'https://github.com/ethgreen-network/ethgreen-blockchain/wiki',
+                'https://github.com/ethgreen/ethgreen-blockchain/wiki',
               );
             },
           },
@@ -366,7 +375,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Frequently Asked Questions' }),
             click: () => {
               openExternal(
-                'https://github.com/ethgreen-network/ethgreen-blockchain/wiki/FAQ',
+                'https://github.com/ethgreen/ethgreen-blockchain/wiki/FAQ',
               );
             },
           },
@@ -374,15 +383,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Release Notes' }),
             click: () => {
               openExternal(
-                'https://github.com/ethgreen-network/ethgreen-blockchain/releases',
-              );
-            },
-          },
-          {
-            label: i18n._(/* i18n */ { id: 'Contribute on GitHub' }),
-            click: () => {
-              openExternal(
-                'https://github.com/ethgreen-network/ethgreen-blockchain/blob/master/CONTRIBUTING.md',
+                'https://github.com/ethgreen/ethgreen-blockchain/releases',
               );
             },
           },
@@ -392,15 +393,19 @@ if (!handleSquirrelEvent()) {
           {
             label: i18n._(/* i18n */ { id: 'Report an Issue...' }),
             click: () => {
-              openExternal(
-                'https://github.com/ethgreen-network/ethgreen-blockchain/issues',
-              );
+              openExternal('https://discord.gg/uWnhFbMJTn');
             },
           },
           {
             label: i18n._(/* i18n */ { id: 'Chat on Discord' }),
             click: () => {
-              openExternal('https://discord.gg/qEd6zrZPsX');
+              openExternal('https://discord.gg/uWnhFbMJTn');
+            },
+          },
+          {
+            label: i18n._(/* i18n */ { id: 'Follow us on Instagram' }),
+            click: () => {
+              openExternal('https://www.instagram.com/ethgreen.blockchain/');
             },
           },
           {
@@ -414,12 +419,12 @@ if (!handleSquirrelEvent()) {
     ];
 
     if (process.platform === 'darwin') {
-      // ETHGreen Blockchain menu (Mac)
+      // Ethgreen Blockchain menu (Mac)
       template.unshift({
-        label: i18n._(/* i18n */ { id: 'ethgreen' }),
+        label: i18n._(/* i18n */ { id: 'Ethgreen' }),
         submenu: [
           {
-            label: i18n._(/* i18n */ { id: 'About ETHGreen Blockchain' }),
+            label: i18n._(/* i18n */ { id: 'About Ethgreen Blockchain' }),
             click: () => {
               openAbout();
             },
@@ -506,7 +511,7 @@ if (!handleSquirrelEvent()) {
           type: 'separator',
         },
         {
-          label: i18n._(/* i18n */ { id: 'About ETHGreen Blockchain' }),
+          label: i18n._(/* i18n */ { id: 'About Ethgreen Blockchain' }),
           click() {
             openAbout();
           },

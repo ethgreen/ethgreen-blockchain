@@ -45,7 +45,7 @@ const getExecutablePath = (dist_file) => {
   return path.join(__dirname, PY_MAC_DIST_FOLDER, dist_file);
 };
 
-const getethgreenVersion = () => {
+const getEthgreenVersion = () => {
   let version = null;
   const exePath = getExecutablePath('ethgreen');
   // first see if we can get a ethgreen exe in a standard location relative to where we are
@@ -71,7 +71,7 @@ const getethgreenVersion = () => {
   return version;
 };
 
-const startethgreenDaemon = () => {
+const startEthgreenDaemon = () => {
   let script = getScriptPath(PY_DIST_FILE);
   let processOptions = {};
   //processOptions.detached = true;
@@ -81,7 +81,7 @@ const startethgreenDaemon = () => {
     try {
       console.log('Running python executable: ');
       const Process = child_process.spawn;
-      pyProc = new Process(script, [], processOptions);
+      pyProc = new Process(script, ["--wait-for-unlock"], processOptions);
     } catch (e) {
       console.log('Running python executable: Error: ');
       console.log('Script ' + script);
@@ -91,7 +91,7 @@ const startethgreenDaemon = () => {
     console.log('Script ' + script);
 
     const Process = child_process.spawn;
-    pyProc = new Process('python', [script], processOptions);
+    pyProc = new Process('python', [script, "--wait-for-unlock"], processOptions);
   }
   if (pyProc != null) {
     pyProc.stdout.setEncoding('utf8');
@@ -138,7 +138,7 @@ const startethgreenDaemon = () => {
 };
 
 module.exports = {
-  startethgreenDaemon,
-  getethgreenVersion,
+  startEthgreenDaemon,
+  getEthgreenVersion,
   guessPackaged,
 };

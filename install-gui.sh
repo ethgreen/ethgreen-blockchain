@@ -10,7 +10,7 @@ if [ -z "$VIRTUAL_ENV" ]; then
 fi
 
 if [ "$(id -u)" = 0 ]; then
-  echo "The ethgreen Blockchain GUI can not be installed or run by the root user."
+  echo "The Ethgreen Blockchain GUI can not be installed or run by the root user."
 	exit 1
 fi
 
@@ -24,7 +24,17 @@ if [ "$(uname)" = "Linux" ]; then
 	if type apt-get; then
 		# Debian/Ubuntu
 		UBUNTU=true
-		sudo apt-get install -y npm nodejs libxss1
+
+		# Check if we are running a Raspberry PI 4
+		if [ "$(uname -m)" = "aarch64" ] \
+		&& [ "$(uname -n)" = "raspberrypi" ]; then
+			# Check if NodeJS & NPM is installed
+			type npm >/dev/null 2>&1 || {
+					echo >&2 "Please install NODEJS&NPM manually"
+			}
+		else
+			sudo apt-get install -y npm nodejs libxss1
+		fi
 	elif type yum &&  [ ! -f "/etc/redhat-release" ] && [ ! -f "/etc/centos-release" ] && [ ! -f /etc/rocky-release ] && [ ! -f /etc/fedora-release ]; then
 		# AMZN 2
 		echo "Installing on Amazon Linux 2."
@@ -101,6 +111,6 @@ else
 fi
 
 echo ""
-echo "ethgreen blockchain install-gui.sh completed."
+echo "Ethgreen blockchain install-gui.sh completed."
 echo ""
 echo "Type 'cd ethgreen-blockchain-gui' and then 'npm run electron &' to start the GUI."

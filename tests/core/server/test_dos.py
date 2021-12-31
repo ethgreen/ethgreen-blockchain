@@ -12,7 +12,7 @@ from ethgreen.protocols.shared_protocol import Handshake
 from ethgreen.server.outbound_message import make_msg, Message
 from ethgreen.server.rate_limits import RateLimiter
 from ethgreen.server.server import ssl_context_for_client
-from ethgreen.server.ws_connection import WSethgreenConnection
+from ethgreen.server.ws_connection import WSEthgreenConnection
 from ethgreen.types.peer_info import PeerInfo
 from ethgreen.util.ints import uint16, uint64
 from ethgreen.util.errors import Err
@@ -188,8 +188,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSethgreenConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSethgreenConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSEthgreenConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSEthgreenConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"
@@ -241,8 +241,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSethgreenConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSethgreenConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSEthgreenConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSEthgreenConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"
@@ -290,8 +290,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSethgreenConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSethgreenConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSEthgreenConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSEthgreenConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"

@@ -9,8 +9,8 @@ from cryptography.hazmat.primitives import hashes, serialization
 
 from ethgreen.protocols.shared_protocol import protocol_version
 from ethgreen.server.outbound_message import NodeType
-from ethgreen.server.server import ethgreenServer, ssl_context_for_client
-from ethgreen.server.ws_connection import WSethgreenConnection
+from ethgreen.server.server import EthgreenServer, ssl_context_for_client
+from ethgreen.server.ws_connection import WSEthgreenConnection
 from ethgreen.ssl.create_ssl import generate_ca_signed_cert
 from ethgreen.types.blockchain_format.sized_bytes import bytes32
 from ethgreen.types.peer_info import PeerInfo
@@ -21,14 +21,16 @@ from tests.time_out_assert import time_out_assert
 log = logging.getLogger(__name__)
 
 
-async def disconnect_all_and_reconnect(server: ethgreenServer, reconnect_to: ethgreenServer) -> bool:
+async def disconnect_all_and_reconnect(server: EthgreenServer, reconnect_to: EthgreenServer) -> bool:
     cons = list(server.all_connections.values())[:]
     for con in cons:
         await con.close()
     return await server.start_client(PeerInfo(self_hostname, uint16(reconnect_to._port)), None)
 
 
-async def add_dummy_connection(server: ethgreenServer, dummy_port: int) -> Tuple[asyncio.Queue, bytes32]:
+async def add_dummy_connection(
+    server: EthgreenServer, dummy_port: int, type: NodeType = NodeType.FULL_NODE
+) -> Tuple[asyncio.Queue, bytes32]:
     timeout = aiohttp.ClientTimeout(total=10)
     session = aiohttp.ClientSession(timeout=timeout)
     incoming_queue: asyncio.Queue = asyncio.Queue()
@@ -45,8 +47,8 @@ async def add_dummy_connection(server: ethgreenServer, dummy_port: int) -> Tuple
     peer_id = bytes32(der_cert.fingerprint(hashes.SHA256()))
     url = f"wss://{self_hostname}:{server._port}/ws"
     ws = await session.ws_connect(url, autoclose=True, autoping=True, ssl=ssl_context)
-    wsc = WSethgreenConnection(
-        NodeType.FULL_NODE,
+    wsc = WSEthgreenConnection(
+        type,
         ws,
         server._port,
         log,
@@ -64,7 +66,7 @@ async def add_dummy_connection(server: ethgreenServer, dummy_port: int) -> Tuple
     return incoming_queue, peer_id
 
 
-async def connect_and_get_peer(server_1: ethgreenServer, server_2: ethgreenServer) -> WSethgreenConnection:
+async def connect_and_get_peer(server_1: EthgreenServer, server_2: EthgreenServer) -> WSEthgreenConnection:
     """
     Connect server_2 to server_1, and get return the connection in server_1.
     """

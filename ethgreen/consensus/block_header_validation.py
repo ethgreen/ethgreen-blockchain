@@ -764,7 +764,7 @@ def validate_unfinished_header_block(
             header_block.foliage.foliage_block_data.donationwallet_reward_puzzle_hash
             != constants.GENESIS_PRE_FARM_DONATIONWALLET_PUZZLE_HASH
         ):
-            return None, ValidationError(Err.INVALID_DONATIONWALLET)
+            return None, ValidationError(Err.INVALID_DONATIONWALLET)           
         # 20b. If pospace has a pool pk, heck pool target signature. Should not check this for genesis block.
         if header_block.reward_chain_block.proof_of_space.pool_public_key is not None:
             assert header_block.reward_chain_block.proof_of_space.pool_contract_puzzle_hash is None

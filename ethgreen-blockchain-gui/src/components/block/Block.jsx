@@ -13,6 +13,7 @@ import { Trans } from '@lingui/macro';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
+  Back,
   Card,
   FormatLargeNumber,
   Link,
@@ -268,7 +269,7 @@ export default function Block() {
       value: (
         <Link
           target="_blank"
-          href={`https://alltheblocks.net/ethgreen/puzzlehash/${blockRecord.farmer_puzzle_hash}`}
+          href={`https://www.ethgreenexplorer.org/blockchain/puzzlehash/${blockRecord.farmer_puzzle_hash}`}
         >
           {currencyCode
             ? toBech32m(
@@ -284,7 +285,7 @@ export default function Block() {
       value: (
         <Link
           target="_blank"
-          href={`https://alltheblocks.net/ethgreen/puzzlehash/${blockRecord.pool_puzzle_hash}`}
+          href={`https://www.ethgreenexplorer.org/blockchain/puzzlehash/${blockRecord.pool_puzzle_hash}`}
         >
           {currencyCode
             ? toBech32m(
@@ -332,11 +333,11 @@ export default function Block() {
     <LayoutMain title={<Trans>Block</Trans>}>
       <Card
         title={
-          <BlockTitle>
+          <Back variant="h5">
             <Trans>
-              Block at height {blockRecord.height} in the ETHGreen Blockchain
+              Block at height {blockRecord.height} in the Ethgreen blockchain
             </Trans>
-          </BlockTitle>
+          </Back>
         }
         action={
           <Flex gap={1}>
