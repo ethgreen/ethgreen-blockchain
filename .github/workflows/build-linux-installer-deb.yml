@@ -31,7 +31,7 @@ jobs:
         access_token: ${{ github.token }}
 
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
         submodules: recursive
@@ -45,7 +45,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Cache npm
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v3
       env:
         cache-name: cache-node-modules
       with:
@@ -63,7 +63,7 @@ jobs:
         echo "::set-output name=dir::$(pip cache dir)"
 
     - name: Cache pip
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v3
       with:
         # Note that new runners may break this https://github.com/actions/cache/issues/292
         path: ${{ steps.pip-cache.outputs.dir }}
@@ -82,7 +82,7 @@ jobs:
         deactivate
 
       # Get the most recent release from chia-plotter-madmax
-    - uses: actions/github-script@v4
+    - uses: actions/github-script@v6
       id: 'latest-madmax'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -103,7 +103,7 @@ jobs:
         chmod +x "$GITHUB_WORKSPACE/madmax/ethgreen_plot_k34"
 
       # Get the most recent release from bladebit
-    - uses: actions/github-script@v4
+    - uses: actions/github-script@v6
       id: 'latest-bladebit'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -129,10 +129,10 @@ jobs:
       run: |
         sh install.sh
 
-    - name: Setup Node 12.x
-      uses: actions/setup-node@v2.4.1
+    - name: Setup Node 16.x
+      uses: actions/setup-node@v3
       with:
-        node-version: '12.x'
+        node-version: '16.x'
 
     - name: Add jq
       run: |
@@ -148,7 +148,7 @@ jobs:
         sh build_linux_deb.sh amd64
 
     - name: Upload Linux artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Linux-Installers
         path: ${{ github.workspace }}/build_scripts/final_installer/

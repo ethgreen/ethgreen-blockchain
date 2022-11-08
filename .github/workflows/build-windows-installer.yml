@@ -25,7 +25,7 @@ jobs:
         access_token: ${{ github.token }}
 
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
         submodules: recursive
@@ -36,7 +36,7 @@ jobs:
         echo "::set-output name=dir::$(npm config get cache)"
 
     - name: Cache npm
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v3
       with:
         path: ${{ steps.npm-cache.outputs.dir }}
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -49,7 +49,7 @@ jobs:
         echo "::set-output name=dir::$(pip cache dir)"
 
     - name: Cache pip
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v3
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
         key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
@@ -57,7 +57,7 @@ jobs:
           ${{ runner.os }}-pip-
 
 #  We can't upgrade to Python 3.8 until we have a miniupnpc binary
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       name: Install Python 3.9
       with:
         python-version: "3.9"
@@ -75,7 +75,7 @@ jobs:
         deactivate
 
       # Get the most recent release from chia-plotter-madmax
-    - uses: actions/github-script@v4
+    - uses: actions/github-script@v6
       id: 'latest-madmax'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -94,7 +94,7 @@ jobs:
         Invoke-WebRequest https://github.com/Chia-Network/chia-plotter-madmax/releases/download/${{ steps.latest-madmax.outputs.result }}/chia_plot_k34-${{ steps.latest-madmax.outputs.result }}.exe -OutFile "$env:GITHUB_WORKSPACE\madmax\ethgreen_plot_k34.exe"
 
       # Get the most recent release from bladebit
-    - uses: actions/github-script@v4
+    - uses: actions/github-script@v6
       id: 'latest-bladebit'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -123,13 +123,13 @@ jobs:
         .\build_scripts\build_windows.ps1
 
     - name: Upload Windows exe's to artifacts
-      uses: actions/upload-artifact@v2.2.2
+      uses: actions/upload-artifact@v3
       with:
         name: Windows-Exe
         path: ${{ github.workspace }}\ethgreen-blockchain-gui\Ethgreen-win32-x64\
 
     - name: Upload Installer to artifacts
-      uses: actions/upload-artifact@v2.2.2
+      uses: actions/upload-artifact@v3
       with:
         name: Windows-Installers
         path: ${{ github.workspace }}\ethgreen-blockchain-gui\release-builds\
