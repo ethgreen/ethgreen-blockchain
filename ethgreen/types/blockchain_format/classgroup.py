@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 
 from ethgreen.consensus.constants import ConsensusConstants
@@ -5,8 +7,8 @@ from ethgreen.types.blockchain_format.sized_bytes import bytes100
 from ethgreen.util.streamable import Streamable, streamable
 
 
-@dataclass(frozen=True)
 @streamable
+@dataclass(frozen=True)
 class ClassgroupElement(Streamable):
     """
     Represents a classgroup element (a,b,c) where a, b, and c are 512 bit signed integers. However this is using

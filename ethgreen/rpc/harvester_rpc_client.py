@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Any, Dict, List
 
 from ethgreen.rpc.rpc_client import RpcClient
@@ -5,10 +7,10 @@ from ethgreen.rpc.rpc_client import RpcClient
 
 class HarvesterRpcClient(RpcClient):
     """
-    Client to Ethgreen RPC, connects to a local harvester. Uses HTTP/JSON, and converts back from
+    Client to ETHgreen RPC, connects to a local harvester. Uses HTTP/JSON, and converts back from
     JSON into native python objects before returning. All api calls use POST requests.
-    Note that this is not the same as the peer protocol, or wallet protocol (which run Ethgreen's
-    protocol on top of TCP), it's a separate protocol on top of HTTP thats provides easy access
+    Note that this is not the same as the peer protocol, or wallet protocol (which run ETHgreen's
+    protocol on top of TCP), it's a separate protocol on top of HTTP that provides easy access
     to the full node.
     """
 

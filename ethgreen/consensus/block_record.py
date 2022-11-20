@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import List, Optional
 
@@ -11,8 +13,8 @@ from ethgreen.util.ints import uint8, uint32, uint64, uint128
 from ethgreen.util.streamable import Streamable, streamable
 
 
-@dataclass(frozen=True)
 @streamable
+@dataclass(frozen=True)
 class BlockRecord(Streamable):
     """
     This class is not included or hashed into the blockchain, but it is kept in memory as a more
@@ -86,5 +88,5 @@ class BlockRecord(Streamable):
             self.required_iters,
         )
 
-    def sp_total_iters(self, constants: ConsensusConstants):
-        return self.sp_sub_slot_total_iters(constants) + self.sp_iters(constants)
+    def sp_total_iters(self, constants: ConsensusConstants) -> uint128:
+        return uint128(self.sp_sub_slot_total_iters(constants) + self.sp_iters(constants))

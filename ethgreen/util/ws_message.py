@@ -1,12 +1,9 @@
 from secrets import token_bytes
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from ethgreen.util.json_util import dict_to_json_str
 
-try:
-    from typings import TypedDict
-except ImportError:
-    from typing_extensions import TypedDict
+from typing_extensions import TypedDict
 
 
 # Messages must follow this format
@@ -49,7 +46,10 @@ def create_payload(command: str, data: Dict[str, Any], origin: str, destination:
     return dict_to_json_str(response)
 
 
-def create_payload_dict(command: str, data: Dict[str, Any], origin: str, destination: str) -> WsRpcMessage:
+def create_payload_dict(command: str, data: Optional[Dict[str, Any]], origin: str, destination: str) -> WsRpcMessage:
+    if data is None:
+        data = {}
+
     return WsRpcMessage(
         command=command,
         ack=False,

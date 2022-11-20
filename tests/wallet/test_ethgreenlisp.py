@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pytest
 
 from ethgreen.wallet.ethgreenlisp import (
@@ -17,7 +19,7 @@ from ethgreen.wallet.ethgreenlisp import (
 )
 
 
-class TestEthgreenlisp:
+class TestETHgreenlisp:
     def test_sexp(self):
         assert sexp() == "()"
         assert sexp(1) == "(1)"

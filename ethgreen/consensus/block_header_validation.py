@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import dataclasses
 import logging
 import time
@@ -44,7 +46,7 @@ def validate_unfinished_header_block(
     expected_sub_slot_iters: uint64,
     skip_overflow_last_ss_validation: bool = False,
     skip_vdf_is_valid: bool = False,
-    check_sub_epoch_summary=True,
+    check_sub_epoch_summary: bool = True,
 ) -> Tuple[Optional[uint64], Optional[ValidationError]]:
     """
     Validates an unfinished header block. This is a block without the infusion VDFs (unfinished)
@@ -759,7 +761,7 @@ def validate_unfinished_header_block(
         ):
             return None, ValidationError(Err.INVALID_DONATIONWALLET)
     else:
-        #20A. Check Community Reward Puzzle Hash
+        # 20b. If pospace has a pool pk, heck pool target signature. Should not check this for genesis block.
         if (
             header_block.foliage.foliage_block_data.donationwallet_reward_puzzle_hash
             != constants.GENESIS_PRE_FARM_DONATIONWALLET_PUZZLE_HASH
@@ -842,7 +844,7 @@ def validate_finished_header_block(
     check_filter: bool,
     expected_difficulty: uint64,
     expected_sub_slot_iters: uint64,
-    check_sub_epoch_summary=True,
+    check_sub_epoch_summary: bool = True,
 ) -> Tuple[Optional[uint64], Optional[ValidationError]]:
     """
     Fully validates the header of a block. A header block is the same  as a full block, but

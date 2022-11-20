@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Optional
 
-from ethgreen.server.ws_connection import WSEthgreenConnection
+from ethgreen.server.ws_connection import WSETHgreenConnection
 from ethgreen.types.blockchain_format.sized_bytes import bytes32
 from ethgreen.types.spend_bundle import SpendBundle
 
@@ -15,7 +17,7 @@ class TransactionQueueEntry:
     transaction: SpendBundle
     transaction_bytes: Optional[bytes]
     spend_name: bytes32
-    peer: Optional[WSEthgreenConnection]
+    peer: Optional[WSETHgreenConnection]
     test: bool
 
     def __lt__(self, other):

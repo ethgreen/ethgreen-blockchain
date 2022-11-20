@@ -1,16 +1,18 @@
+from __future__ import annotations
+
 import asyncio
 import random
 from typing import Any, List, Optional, Tuple
 
-from ethgreen.server.ws_connection import WSEthgreenConnection
+from ethgreen.server.ws_connection import WSETHgreenConnection
 
 
 async def send_all_first_reply(
-    func: str, arg: Any, peers: List[WSEthgreenConnection], timeout=15
-) -> Optional[Tuple[Any, WSEthgreenConnection]]:
+    func: str, arg: Any, peers: List[WSETHgreenConnection], timeout=15
+) -> Optional[Tuple[Any, WSETHgreenConnection]]:
     """performs an API request to peers and returns the result of the first response and the peer that sent it."""
 
-    async def do_func(peer_x: WSEthgreenConnection, func_x: str, arg_x: Any):
+    async def do_func(peer_x: WSETHgreenConnection, func_x: str, arg_x: Any):
         method_to_call = getattr(peer_x, func_x)
         result_x = await method_to_call(arg_x)
         if result_x is not None:
@@ -37,10 +39,10 @@ async def send_all_first_reply(
         return None
 
 
-async def send_to_random(func: str, arg: Any, peers: List[WSEthgreenConnection]) -> Optional[Tuple[Any, WSEthgreenConnection]]:
+async def send_to_random(func: str, arg: Any, peers: List[WSETHgreenConnection]) -> Optional[Tuple[Any, WSETHgreenConnection]]:
     """performs an API request to peers and returns the result of the first response and the peer that sent it."""
 
-    async def do_func(peer_x: WSEthgreenConnection, func_x: str, arg_x: Any):
+    async def do_func(peer_x: WSETHgreenConnection, func_x: str, arg_x: Any):
         method_to_call = getattr(peer_x, func_x)
         result_x = await method_to_call(arg_x)
         if result_x is not None:

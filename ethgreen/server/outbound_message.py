@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import IntEnum
-from typing import Any, Optional
+from typing import Optional, SupportsBytes, Union
 
 from ethgreen.protocols.protocol_message_types import ProtocolMessageTypes
 from ethgreen.util.ints import uint8, uint16
@@ -14,6 +16,7 @@ class NodeType(IntEnum):
     TIMELORD = 4
     INTRODUCER = 5
     WALLET = 6
+    DATA_LAYER = 7
 
 
 class Delivery(IntEnum):
@@ -27,12 +30,12 @@ class Delivery(IntEnum):
     RANDOM = 4
     # Pseudo-message to close the current connection
     CLOSE = 5
-    # A message is sent to a speicific peer
+    # A message is sent to a specific peer
     SPECIFIC = 6
 
 
-@dataclass(frozen=True)
 @streamable
+@dataclass(frozen=True)
 class Message(Streamable):
     type: uint8  # one of ProtocolMessageTypes
     # message id
@@ -41,5 +44,5 @@ class Message(Streamable):
     data: bytes
 
 
-def make_msg(msg_type: ProtocolMessageTypes, data: Any) -> Message:
+def make_msg(msg_type: ProtocolMessageTypes, data: Union[bytes, SupportsBytes]) -> Message:
     return Message(uint8(msg_type.value), None, bytes(data))

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from ethgreen.consensus.constants import ConsensusConstants
 from ethgreen.consensus.pos_quality import _expected_plot_size
 from ethgreen.types.blockchain_format.sized_bytes import bytes32

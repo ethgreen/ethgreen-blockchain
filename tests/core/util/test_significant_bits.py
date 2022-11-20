@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import unittest
 
 from ethgreen.util.significant_bits import count_significant_bits, truncate_to_significant_bits

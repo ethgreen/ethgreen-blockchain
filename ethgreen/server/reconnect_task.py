@@ -1,11 +1,13 @@
 import asyncio
-import socket
 
-from ethgreen.server.server import EthgreenServer
+from typing import Optional
+
+from ethgreen.server.server import ETHgreenServer
 from ethgreen.types.peer_info import PeerInfo
+from ethgreen.util.network import get_host_addr
 
 
-def start_reconnect_task(server: EthgreenServer, peer_info_arg: PeerInfo, log, auth: bool):
+def start_reconnect_task(server: ETHgreenServer, peer_info_arg: PeerInfo, log, prefer_ipv6: Optional[bool]):
     """
     Start a background task that checks connection and reconnects periodically to a peer.
     """
@@ -13,7 +15,7 @@ def start_reconnect_task(server: EthgreenServer, peer_info_arg: PeerInfo, log, a
     if peer_info_arg.is_valid():
         peer_info = peer_info_arg
     else:
-        peer_info = PeerInfo(socket.gethostbyname(peer_info_arg.host), peer_info_arg.port)
+        peer_info = PeerInfo(get_host_addr(peer_info_arg, prefer_ipv6), peer_info_arg.port)
 
     async def connection_check():
         while True:
@@ -24,7 +26,7 @@ def start_reconnect_task(server: EthgreenServer, peer_info_arg: PeerInfo, log, a
             if peer_retry:
                 log.info(f"Reconnecting to peer {peer_info}")
                 try:
-                    await server.start_client(peer_info, None, auth=auth)
+                    await server.start_client(peer_info, None)
                 except Exception as e:
                     log.info(f"Failed to connect to {peer_info} {e}")
             await asyncio.sleep(3)
