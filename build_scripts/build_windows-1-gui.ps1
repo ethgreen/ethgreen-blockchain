@@ -12,7 +12,7 @@ npm install
 $Env:Path = $(npm bin) + ";" + $Env:Path
 
 Set-Location -Path "..\..\" -PassThru
-git submodule update --init ethgreen-blockchain-gui
+
 
 Set-Location -Path ".\ethgreen-blockchain-gui" -PassThru
 

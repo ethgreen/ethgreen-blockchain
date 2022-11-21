@@ -9,7 +9,7 @@ cd npm_macos || exit 1
 npm install
 PATH=$(npm bin):$PATH
 cd ../../ || exit 1
-git submodule update --init ethgreen-blockchain-gui
+
 
 cd ./ethgreen-blockchain-gui || exit 1
 echo "npm build"

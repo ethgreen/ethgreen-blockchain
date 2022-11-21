@@ -148,8 +148,8 @@ jobs:
           gui_ref=$(git submodule status ethgreen-blockchain-gui | sed -e 's/^ //g' -e 's/ ethgreen-blockchain-gui.*$//g')
           echo "${gui_ref}"
           echo "::set-output name=GUI_REF::${gui_ref}"
-          echo "rm -rf ./ethgreen-blockchain-gui"
-          rm -rf ./ethgreen-blockchain-gui
+          
+          
 
       - name: Cache GUI
         uses: actions/cache@v3
